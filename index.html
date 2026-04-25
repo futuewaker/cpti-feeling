@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <meta name="theme-color" content="#FFFFFF">
+  <meta name="description" content="CPTI 关系塑 · 比 MBTI 多一个人的测试">
+  <meta property="og:title" content="CPTI · 关系塑">
+  <meta property="og:description" content="Solo 测自己 + Match 配对 ta · 6 大关系类型, 24 动物本命化">
+  <meta property="og:type" content="website">
+  <title>CPTI · 关系塑</title>
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;utf8,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20viewBox%3D%220%200%2016%2016%22%20shape-rendering%3D%22crispEdges%22%3E%3Cpath%20fill%3D%22%231A1A1A%22%20d%3D%22M3%203h2v2H3zm8%200h2v2h-2zM3%205h2v2H3zm2%200h6v6H5zm6%200h2v2h-2zM5%2011h6v2H5z%22/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <!-- SVG defs -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="icon-arrow-left" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M14 6l-6 6 6 6"/>
+      </symbol>
+      <symbol id="icon-arrow-right" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="M10 6l6 6-6 6"/>
+      </symbol>
+      <symbol id="icon-download" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M12 4v12m0 0l-4-4m4 4l4-4M5 20h14"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <main class="app" id="app">
+
+    <!-- ===================== INTRO ===================== -->
+    <section class="view view-intro active" id="view-intro" aria-label="首页">
+      <div class="intro-inner">
+        <!-- 3-row scrolling pixel pet marquee -->
+        <div class="intro-scroll" aria-hidden="true">
+          <div class="scroll-row" id="scroll-row-1"></div>
+          <div class="scroll-row scroll-reverse" id="scroll-row-2"></div>
+          <div class="scroll-row" id="scroll-row-3"></div>
+        </div>
+
+        <span class="title-badge">2026 NEW · 关系塑</span>
+        <h1 class="title-pixel">CPTI</h1>
+
+        <p class="intro-slogan-hero">
+          <span class="slogan-bracket">「</span>比 <s class="slogan-strike">MBTI</s> 多<em class="slogan-hl">一个人</em>的测试<span class="slogan-bracket">」</span>
+        </p>
+        <p class="intro-slogan-sub">Solo 测自己 + Match 配对 ta</p>
+
+        <div class="intro-entries">
+          <button class="btn btn-primary btn-lg" id="btn-solo" type="button">
+            单人测试
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+          <button class="btn btn-secondary btn-lg" id="btn-match" type="button">
+            输入两个动物匹配
+            <span class="btn-arrow" aria-hidden="true">→</span>
+          </button>
+        </div>
+
+        <p class="intro-hint">约 3 分钟 · 5 大心理学模型加持</p>
+        <p class="intro-hint">单身/暧昧/在恋爱都能玩</p>
+      </div>
+    </section>
+
+    <!-- ===================== QUIZ ===================== -->
+    <section class="view view-quiz" id="view-quiz" aria-label="题目">
+      <header class="quiz-header">
+        <button class="icon-btn" id="btn-home" type="button" aria-label="回到首页">
+          <svg viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
+        </button>
+        <div class="progress-bar-wrap" role="progressbar" aria-valuemin="1" aria-valuemax="18" aria-valuenow="1">
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+          <div class="progress-count">
+            <span id="progress-current">1</span> <span class="progress-slash">/</span> <span id="progress-total">18</span>
+          </div>
+        </div>
+      </header>
+
+      <div class="scenario-hint">
+        <div class="scenario-avatar" aria-hidden="true">
+          <img id="scenario-avatar-img" src="" alt="">
+        </div>
+        <div class="scenario-bubble" id="scenario-bubble">一个人最诚实的时刻</div>
+      </div>
+
+      <div class="quiz-stage">
+        <article class="quiz-card" id="quiz-card">
+          <h2 class="q-text" id="q-text">题目加载中…</h2>
+          <ul class="options" id="options-list" role="radiogroup" aria-label="选项"></ul>
+        </article>
+      </div>
+
+      <footer class="quiz-footer">
+        <button class="nav-btn" id="btn-prev" type="button" aria-label="上一题" disabled>
+          <svg viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
+          <span>上一题</span>
+        </button>
+        <button class="nav-btn" id="btn-next" type="button" aria-label="下一题" disabled>
+          <span>下一题</span>
+          <svg viewBox="0 0 24 24"><use href="#icon-arrow-right"/></svg>
+        </button>
+      </footer>
+    </section>
+
+    <!-- ===================== MATCH ===================== -->
+    <section class="view view-match" id="view-match" aria-label="配对选择">
+      <header class="quiz-header">
+        <button class="icon-btn" id="btn-home-match" type="button" aria-label="回到首页">
+          <svg viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
+        </button>
+        <h2 class="match-title">
+          测我和 ta<span class="match-title-pixel">MATCH</span>
+        </h2>
+      </header>
+
+      <p class="match-sub">选两个动物,看你俩是哪种配对</p>
+
+      <div class="match-slots">
+        <button class="match-slot" id="match-slot-left" type="button" aria-label="我的动物">
+          <span class="match-slot-label">我</span>
+          <div class="match-slot-avatar">
+            <span class="match-slot-placeholder" id="match-placeholder-left">?</span>
+            <img id="match-img-left" src="" alt="" style="display:none;">
+          </div>
+          <span class="match-slot-name match-slot-name-empty" id="match-name-left">选我的动物</span>
+        </button>
+
+        <span class="match-heart" aria-hidden="true">♥</span>
+
+        <button class="match-slot" id="match-slot-right" type="button" aria-label="ta 的动物">
+          <span class="match-slot-label">ta</span>
+          <div class="match-slot-avatar">
+            <span class="match-slot-placeholder" id="match-placeholder-right">?</span>
+            <img id="match-img-right" src="" alt="" style="display:none;">
+          </div>
+          <span class="match-slot-name match-slot-name-empty" id="match-name-right">选 ta 的动物</span>
+        </button>
+      </div>
+
+      <h3 class="match-picker-title" id="match-picker-title">先点「我」· 再点「ta」</h3>
+
+      <div class="animal-grid" id="animal-grid"></div>
+
+      <button class="btn btn-primary btn-lg match-cta" id="btn-match-go" type="button" disabled>
+        生成配对报告
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <p class="match-hint">双方都选上才能生成</p>
+    </section>
+
+    <!-- ===================== RESULT (Solo) ===================== -->
+    <section class="view view-result" id="view-result" aria-label="结果">
+      <div class="result-top">
+        <div class="pixel-avatar pixel-avatar-lg" aria-hidden="true">
+          <img id="result-image" src="" alt="">
+        </div>
+        <p class="result-preamble">你的关系类型是</p>
+        <h2 class="result-name">
+          <span id="result-name-title"></span><span id="result-name"></span>
+        </h2>
+      </div>
+
+      <blockquote class="result-quote" id="result-quote"></blockquote>
+
+      <h3 class="result-section-title">关系标签</h3>
+      <div class="result-tags" id="result-tags"></div>
+
+      <h3 class="result-section-title">关系速评</h3>
+      <div class="quick-review-wrap">
+        <div class="result-quick-review" id="result-quick-review"></div>
+        <a class="btn-share-mini" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">分享 →</a>
+      </div>
+
+      <!-- Match cross-promo CTA -->
+      <button class="result-cta-match" id="btn-go-match" type="button">
+        测我和 ta 是哪种配对
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </button>
+
+      <h3 class="result-section-title">关系解读</h3>
+      <div class="result-interpretation" id="result-interpretation"></div>
+
+      <h3 class="result-section-title">你的依恋两轴</h3>
+      <div class="highlight-cards">
+        <div class="highlight-card highlight-card-md">
+          <span class="highlight-card-label">依恋焦虑</span>
+          <span class="highlight-card-value" id="result-md-value">--</span>
+          <span class="highlight-card-note" id="result-md-note">--</span>
+        </div>
+        <div class="highlight-card highlight-card-nz">
+          <span class="highlight-card-label">依恋回避</span>
+          <span class="highlight-card-value" id="result-nz-value">--</span>
+          <span class="highlight-card-note" id="result-nz-note">--</span>
+        </div>
+      </div>
+
+      <h3 class="result-section-title">维度雷达</h3>
+      <div class="radar-wrap">
+        <canvas id="radar-canvas" width="600" height="600" aria-label="维度雷达图"></canvas>
+      </div>
+
+      <h3 class="result-section-title">口头禅</h3>
+      <div class="result-catchphrases" id="result-catchphrases"></div>
+
+      <!-- QR code · included in long screenshot -->
+      <div class="result-qr-block">
+        <div class="result-qr-wrap">
+          <img src="images/qr-petti.png" alt="扫码测 CPTI" class="result-qr">
+        </div>
+        <div class="result-qr-text">
+          <div class="result-qr-title">扫码找你的关系类型</div>
+          <div class="result-qr-sub">CPTI · cpti.pages.dev</div>
+          <div class="result-qr-tag">3 分钟 · 6 大关系类型</div>
+        </div>
+      </div>
+
+      <div class="result-actions">
+        <button class="btn btn-primary" id="btn-save-long" type="button">
+          <span class="btn-icon" aria-hidden="true">📸</span>
+          一键长截图保存
+        </button>
+        <button class="btn btn-secondary" id="btn-share" type="button">复制分享链接</button>
+        <button class="btn btn-ghost" id="btn-restart" type="button">再测一次</button>
+      </div>
+
+      <a class="xhs-promo"
+         href="https://xhslink.com/m/1RQHBYkZljM"
+         target="_blank"
+         rel="noopener noreferrer"
+         aria-label="跳转作者的小红书主页">
+        <span class="xhs-badge" aria-hidden="true">小红书</span>
+        <span class="xhs-text">
+          <span class="xhs-title">作者的小红书</span>
+          <span class="xhs-sub">更多测试正在路上</span>
+        </span>
+        <span class="xhs-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <p class="result-footer-note">愿你在关系里，做最坦诚的那个。</p>
+    </section>
+
+    <!-- ===================== COUPLE RESULT ===================== -->
+    <section class="view view-couple-result" id="view-couple-result" aria-label="配对结果">
+      <header class="quiz-header">
+        <button class="icon-btn" id="btn-home-couple" type="button" aria-label="回到首页">
+          <svg viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
+        </button>
+        <p class="couple-preamble" id="couple-preamble">你们是</p>
+      </header>
+
+      <div class="couple-top">
+        <div class="pixel-avatar" aria-hidden="true">
+          <img id="couple-img-left" src="" alt="">
+        </div>
+        <span class="couple-top-heart" aria-hidden="true">♥</span>
+        <div class="pixel-avatar" aria-hidden="true">
+          <img id="couple-img-right" src="" alt="">
+        </div>
+      </div>
+
+      <div class="couple-heading">
+        <h2 class="couple-title" id="couple-title">配对标题</h2>
+        <p class="couple-subtitle" id="couple-subtitle"></p>
+      </div>
+
+      <div class="couple-score-card">
+        <span class="couple-score-label">兼容度</span>
+        <span class="couple-score-value" id="couple-score">--</span>
+        <span class="couple-score-note" id="couple-score-note"></span>
+        <a class="btn-share-mini" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">分享 →</a>
+      </div>
+
+      <div class="couple-block is-accent">
+        <span class="couple-block-label">关系动力</span>
+        <div class="couple-block-body" id="couple-dynamics"></div>
+      </div>
+
+      <div class="couple-block">
+        <span class="couple-block-label">你们的甜点</span>
+        <ul class="couple-list" id="couple-strengths"></ul>
+      </div>
+
+      <div class="couple-block">
+        <span class="couple-block-label">注意的坎</span>
+        <ul class="couple-list" id="couple-risks"></ul>
+      </div>
+
+      <div class="couple-block">
+        <span class="couple-block-label">怎么修补</span>
+        <ul class="couple-list" id="couple-repair"></ul>
+      </div>
+
+      <div class="couple-actions">
+        <button class="btn btn-primary" id="btn-couple-save" type="button">
+          <span class="btn-icon" aria-hidden="true">📸</span>
+          一键长截图保存
+        </button>
+        <button class="btn btn-secondary" id="btn-couple-share" type="button">复制配对链接</button>
+        <button class="btn btn-ghost" id="btn-couple-restart" type="button">再配一次</button>
+      </div>
+
+      <a class="couple-cta-solo" id="btn-couple-to-solo">
+        还没测过自己?先做 Solo 测试
+        <span class="btn-arrow" aria-hidden="true">→</span>
+      </a>
+
+      <p class="result-footer-note">关系是两个人的事。</p>
+    </section>
+
+  </main>
+
+  <!-- Save loading overlay -->
+  <div class="save-loading" id="save-loading" aria-hidden="true">
+    <div class="save-loading-inner">
+      <div class="spinner"></div>
+      <div>正在生成长图…</div>
+    </div>
+  </div>
+
+  <!-- Save modal fallback for iOS (long-press to save) -->
+  <div class="save-modal" id="save-modal" aria-hidden="true">
+    <div class="save-modal-backdrop" id="save-modal-backdrop"></div>
+    <div class="save-modal-inner">
+      <div class="save-modal-hint">长按图片保存到相册</div>
+      <div class="save-modal-img-wrap">
+        <img class="save-modal-img" id="save-modal-img" src="" alt="结果图">
+      </div>
+      <button class="btn btn-ghost" id="btn-save-close" type="button">关闭</button>
+    </div>
+  </div>
+
+  <script src="app.js" defer></script>
+</body>
+</html>
