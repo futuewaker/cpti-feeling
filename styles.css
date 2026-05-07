@@ -642,9 +642,44 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
    ========================================================== */
 .view-result { padding-bottom: 40px; position: relative; }
 
-/* Mini share button — right-aligned beneath 关系速评 card */
+/* 关系速评 区 + 底部胶囊 row (Match + 分享 并排) */
 .quick-review-wrap { margin-bottom: 28px; }
-.quick-review-wrap .result-quick-review { margin-bottom: 8px; }
+.quick-review-wrap .result-quick-review { margin-bottom: 12px; }
+
+.quick-review-actions {
+  display: flex;
+  gap: 8px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* 共享胶囊基础 */
+.btn-mini {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  border: 2px solid var(--text);
+  box-shadow: 2px 2px 0 var(--text);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  cursor: pointer;
+  font-family: inherit;
+  color: var(--text);
+  transition: transform 0.1s var(--ease-out), box-shadow 0.1s var(--ease-out);
+}
+.btn-mini:active {
+  transform: translate(1px, 1px);
+  box-shadow: 1px 1px 0 var(--text);
+}
+
+.btn-mini-match  { background: var(--primary); color: var(--text); }
+.btn-mini-share  { background: #FF2442; color: #FFF; }
+
+/* 旧 .btn-share-mini 保持向后兼容 (couple page 还在用) */
 .btn-share-mini {
   display: inline-flex;
   align-items: center;
@@ -666,11 +701,6 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
 .btn-share-mini:active {
   transform: translate(1px, 1px);
   box-shadow: 1px 1px 0 var(--text);
-}
-.quick-review-wrap::after {
-  content: '';
-  display: block;
-  clear: both;
 }
 
 .result-top {
