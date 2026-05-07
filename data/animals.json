@@ -1,218 +1,92 @@
 [
   {
-    "id": "husky",
-    "name_title": "YELL",
-    "name_cn": "哈士奇",
-    "image": "images/husky.png",
-    "primary_type": "PURS",
-    "secondary_type": "KIND",
-    "rationale": "ENFP + 安全型(略黏) + 极高外向零内耗 → 激情外显、想黏就黏,典型追求者;副点火者在于反应链极短、第一晚最热。"
+    "id": "hermit_crab",
+    "name_title": "SHELL",
+    "name_cn": "缩壳人",
+    "image": "images/hermit_crab.png",
+    "primary_type": "SHELL",
+    "secondary_type": "SHELL",
+    "rationale": "回避型依恋 + 高边界感 — 喜欢就先把自己锁进壳里"
   },
   {
-    "id": "lion_cub",
-    "name_title": "BOSS",
-    "name_cn": "小狮子",
-    "image": "images/lion_cub.png",
-    "primary_type": "KIND",
-    "secondary_type": "ANCH",
-    "rationale": "ENTJ + 安全型(主导) + 极低神经质 → 激情主导、决定了就上,但承诺门槛自己定;副定锚在于内核稳、边界清。"
+    "id": "owl",
+    "name_title": "OWL",
+    "name_cn": "凌晨内耗师",
+    "image": "images/owl.png",
+    "primary_type": "OWL",
+    "secondary_type": "OWL",
+    "rationale": "高反思 + 内化型焦虑 — 白天没事 凌晨写小作文"
   },
   {
-    "id": "pony",
-    "name_title": "ROAM",
-    "name_cn": "小马",
-    "image": "images/pony.png",
-    "primary_type": "KIND",
-    "secondary_type": "AVOI",
-    "rationale": "ESFP + 安全型(逃避倾向) → 高激情但低束缚,一见心动但难锁定;副回避在于对'被决定'生理性抵触。"
-  },
-  {
-    "id": "penguin",
-    "name_title": "SUIT",
-    "name_cn": "企鹅",
-    "image": "images/penguin.png",
-    "primary_type": "ANCH",
-    "secondary_type": "WEAV",
-    "rationale": "ESTJ + 安全型 + 高尽责高宜人低神经质 → 低焦低避+高承诺,最标准定锚人;副编织者在于群居稳重、默默支撑。"
-  },
-  {
-    "id": "pig",
-    "name_title": "FEAST",
-    "name_cn": "小猪",
-    "image": "images/pig.png",
-    "primary_type": "PURS",
-    "secondary_type": "KIND",
-    "rationale": "ESFP + 安全型 + 极低神经质 + 情绪未加密 → 爱来得快敢黏敢说,追求者典型;副点火在于'几小时就想黏一起'的激情冲击。"
-  },
-  {
-    "id": "squirrel",
-    "name_title": "DART",
-    "name_cn": "松鼠",
-    "image": "images/squirrel.png",
-    "primary_type": "KIND",
-    "secondary_type": "PURS",
-    "rationale": "ENTP + 高开放 + 多线程高速 → 想到就动激情燃得快,但焦点常跳,典型点火者;副追求在于'焦虑驱动行动'那一点黏度。"
-  },
-  {
-    "id": "weasel",
-    "name_title": "ZIG",
-    "name_cn": "黄鼠狼",
-    "image": "images/weasel.png",
-    "primary_type": "AVOI",
-    "secondary_type": "KIND",
-    "rationale": "ESTP + 回避-安全混合 + 低宜人 → 绕着走+留撤退路线,典型回避者;副点火在于行动极快、ROI 导向的激情表达。"
-  },
-  {
-    "id": "red_panda",
-    "name_title": "BLUSH",
-    "name_cn": "小熊猫",
-    "image": "images/red_panda.png",
-    "primary_type": "WEAV",
-    "secondary_type": "PURS",
-    "rationale": "ISFP + 焦虑-安全 + 高宜人 → 高情感浓度+慢热慢织,亲密语言很真诚,典型编织者;副追求在于脸红背后那份'已经在乎'的焦虑。"
-  },
-  {
-    "id": "fox",
-    "name_title": "SAGE",
-    "name_cn": "狐狸",
-    "image": "images/fox.png",
-    "primary_type": "AVOI",
-    "secondary_type": "ANCH",
-    "rationale": "INTJ + 回避型 + 高开放高尽责 → 高冷静低自我披露、爱前先审资格,典型回避;副定锚在于认定后承诺 5 年起步。"
-  },
-  {
-    "id": "deer",
-    "name_title": "GRACE",
-    "name_cn": "麋鹿",
-    "image": "images/deer.png",
-    "primary_type": "ANCH",
-    "secondary_type": "WEAV",
-    "rationale": "ISFJ + 安全型 + 全中低神经质 → 慢思考、节奏自洽、关系求耐久,典型定锚人;副编织在于对关系质感的审美洁癖。"
-  },
-  {
-    "id": "cowcat",
-    "name_title": "FLIP",
-    "name_cn": "奶牛猫",
-    "image": "images/cowcat.png",
-    "primary_type": "CHAO",
-    "secondary_type": "PURS",
-    "rationale": "ISFP + 焦虑-安全 + 高开放 → 情绪零延迟+反复切换,典型风暴眼(焦+避交替);副追求在于撒娇上头模式下的全情投入。"
-  },
-  {
-    "id": "sheep",
-    "name_title": "FLOW",
-    "name_cn": "绵羊",
-    "image": "images/sheep.png",
-    "primary_type": "WEAV",
-    "secondary_type": "PURS",
-    "rationale": "ESFJ + 焦虑型 + 高宜人 → 顺势温柔+把别人情绪织进自己,典型编织者;副追求在于焦虑型容易上心、怕失去。"
-  },
-  {
-    "id": "brown_bear",
-    "name_title": "HEFT",
-    "name_cn": "棕熊",
-    "image": "images/brown_bear.png",
-    "primary_type": "ANCH",
-    "secondary_type": "AVOI",
-    "rationale": "ISTP + 安全-回避 + 钝感王者 → 慢沉稳、一旦认定就终身,典型定锚人;副回避在于不主动表达、沉默输出。"
-  },
-  {
-    "id": "cow",
-    "name_title": "CHEW",
-    "name_cn": "奶牛",
-    "image": "images/cow.png",
-    "primary_type": "ANCH",
-    "secondary_type": "WEAV",
-    "rationale": "ISFP + 安全型 + 低尽责低神经质 → 极慢节奏+一旦认定比谁都长情,典型定锚人;副编织在于慢慢把日子磨成温柔。"
-  },
-  {
-    "id": "hamster",
-    "name_title": "STASH",
-    "name_cn": "仓鼠",
-    "image": "images/hamster.png",
-    "primary_type": "WEAV",
-    "secondary_type": "CHAO",
-    "rationale": "ISTJ + 焦虑-安全 + 高尽责 → 把关系像橡子一样囤起来、处处备份,典型编织者;副风暴眼在于'万一呢'的循环内耗。"
-  },
-  {
-    "id": "angora",
-    "name_title": "NOBLE",
-    "name_cn": "安哥拉猫",
-    "image": "images/angora.png",
-    "primary_type": "AVOI",
-    "secondary_type": "ANCH",
-    "rationale": "ISTJ + 回避型 + 高尽责高开放 → 预约制亲密、筛完再开机,典型回避者;副定锚在于一旦筛进来就稳定投入。"
-  },
-  {
-    "id": "alpaca",
-    "name_title": "MEH",
-    "name_cn": "羊驼",
-    "image": "images/alpaca.png",
-    "primary_type": "AVOI",
-    "secondary_type": "KIND",
-    "rationale": "INTP + 回避型 + 中尽责低神经质 → 脸佛心毒、情绪脱敏,典型回避者;副点火在于对感情不上头、火来火去各一天。"
-  },
-  {
-    "id": "wolf",
-    "name_title": "LONE",
-    "name_cn": "狼",
-    "image": "images/wolf.png",
-    "primary_type": "AVOI",
-    "secondary_type": "ANCH",
-    "rationale": "INTJ + 回避型 + 高尽责 → 朋友少但深、反低质量社交,典型回避者;副定锚在于筛过之后的高质量长期承诺。"
-  },
-  {
-    "id": "kitsune",
-    "name_title": "WISH",
-    "name_cn": "三尾狐",
-    "image": "images/kitsune.png",
-    "primary_type": "PURS",
-    "secondary_type": "WEAV",
-    "rationale": "INFP + 焦虑型 + 高神经质高宜人 → 全情投入+情感浓度 MAX,典型追求者;副编织在于用感性把关系织成红线的表达风格。"
-  },
-  {
-    "id": "polar_bear",
-    "name_title": "FROST",
-    "name_cn": "北极熊",
-    "image": "images/polar_bear.png",
-    "primary_type": "AVOI",
-    "secondary_type": "ANCH",
-    "rationale": "ISTJ + 回避型 + 高尽责低神经质 → 节能慢回、热量保留型,典型回避者;副定锚在于'决定了就终身'的承诺厚度。"
+    "id": "peacock",
+    "name_title": "PEAC",
+    "name_cn": "慕强王",
+    "image": "images/peacock.png",
+    "primary_type": "PEAC",
+    "secondary_type": "PEAC",
+    "rationale": "选择性承诺 + 高展示欲 — ta 不够好 我就先不爱了"
   },
   {
     "id": "koala",
-    "name_title": "DOZE",
-    "name_cn": "考拉",
+    "name_title": "HUG",
+    "name_cn": "挂件型",
     "image": "images/koala.png",
-    "primary_type": "WEAV",
-    "secondary_type": "ANCH",
-    "rationale": "ISFP + 回避型 + 低能耗 → 不追不抢但陪着很安心,慢节奏把关系编进日常,副定锚;表面看像回避,底子是稳。"
+    "primary_type": "HUG",
+    "secondary_type": "HUG",
+    "rationale": "焦虑型依恋 + 高承诺 — 一旦确认是你 我就挂上去"
   },
   {
-    "id": "panda",
-    "name_title": "LAZY",
-    "name_cn": "熊猫",
-    "image": "images/panda.png",
-    "primary_type": "ANCH",
-    "secondary_type": "AVOI",
-    "rationale": "ISTP + 安全-回避 + 低尽责低神经质 → 不主动但稳、关系低压但长,典型定锚人;副回避在于存在感大于行动。"
+    "id": "bee",
+    "name_title": "BEE",
+    "name_cn": "不锁恋采蜜人",
+    "image": "images/bee.png",
+    "primary_type": "BEE",
+    "secondary_type": "BEE",
+    "rationale": "低承诺 + 多向倾慕 — 都很喜欢 但都不要锁"
   },
   {
-    "id": "night_beast",
-    "name_title": "VOID",
-    "name_cn": "暗夜兽",
-    "image": "images/night_beast.png",
-    "primary_type": "CHAO",
-    "secondary_type": "WEAV",
-    "rationale": "INFJ + 焦虑-混乱 + 高神经质 → 又焦又避、凌晨三点脑回路,典型风暴眼;副编织在于把痛感织成表达、高情感浓度。"
+    "id": "dolphin",
+    "name_title": "WAVE",
+    "name_cn": "情绪海王",
+    "image": "images/dolphin.png",
+    "primary_type": "WAVE",
+    "secondary_type": "WAVE",
+    "rationale": "高情绪波动 + 高敏感 — 上一秒粘人 下一秒已读不回"
   },
   {
-    "id": "hedgehog",
-    "name_title": "GUARD",
-    "name_cn": "刺猬",
-    "image": "images/hedgehog.png",
-    "primary_type": "CHAO",
-    "secondary_type": "AVOI",
-    "rationale": "INFJ + 回避型(伴随焦虑) + 高神经质 → 回避外壳+焦虑内芯,蜷-张矛盾循环,典型风暴眼;副回避在于靠近前三轮验证的刺。"
+    "id": "wolf_cub",
+    "name_title": "WOLF",
+    "name_cn": "嘴硬糖心型",
+    "image": "images/wolf_cub.png",
+    "primary_type": "WOLF",
+    "secondary_type": "WOLF",
+    "rationale": "撤退表达 + 行动爱语 — '我没生气' 本人一秒后就化了"
+  },
+  {
+    "id": "penguin",
+    "name_title": "PEN",
+    "name_cn": "认定脑",
+    "image": "images/penguin.png",
+    "primary_type": "PEN",
+    "secondary_type": "PEN",
+    "rationale": "安全型 + 高承诺锁定 — 选定一个就开始幻想婚礼"
+  },
+  {
+    "id": "rabbit",
+    "name_title": "BUNN",
+    "name_cn": "应激跑路型",
+    "image": "images/rabbit.png",
+    "primary_type": "BUNN",
+    "secondary_type": "BUNN",
+    "rationale": "高焦虑 + 高回避 — 你声音大一点 我就消失了"
+  },
+  {
+    "id": "lamb",
+    "name_title": "LAMB",
+    "name_cn": "讨好奶",
+    "image": "images/lamb.png",
+    "primary_type": "LAMB",
+    "secondary_type": "LAMB",
+    "rationale": "讨好型 + 压抑表达 — '都行你定' 然后凌晨 emo"
   }
 ]

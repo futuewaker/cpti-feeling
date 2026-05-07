@@ -2,235 +2,281 @@
   {
     "id": 1,
     "dim": "AX",
-    "text": "你和 ta 暧昧第三周,周二晚上 ta 看了你消息没回。到周五还没回。你的脑子——",
-    "scenario_emoji": "💔",
-    "bubble": "已读不回第 72 小时",
-    "avatar": "images/kitsune.png",
+    "text": "你和 ta 暧昧第二周, 周三晚 11 点你发了张梗图, ta 已读没回。到周五晚还没回。这两天你的脑子——",
+    "scenario_emoji": "📵",
+    "bubble": "已读不回第 48 小时",
+    "avatar": "images/owl.png",
     "options": [
-      { "label": "已经播到第 50 集:ta 是不是出事了/讨厌我了/有别人了/在医院了/在我家楼下蹲我了(惊吓三连脸)", "score": 1, "types": ["PURS","CHAO"] },
-      { "label": "想了想,发了句\"忙吗\",装作随便", "score": 0, "types": ["WEAV","ANCH"] },
-      { "label": "ta 没回那就不回了,我有自己的事", "score": -1, "types": ["AVOI","ANCH"] }
+      { "label": "我已经在脑里把'ta 是不是出事 / 是不是讨厌我了 / 是不是有别人了 / 是不是想冷处理我了' 演了 47 集 (内耗 boss 战)", "score": 2, "types": ["OWL", "HUG"] },
+      { "label": "翻 ta 的小红书 / 抖音 / 微博 / B 站收藏夹找这两天的动态推证 (赛博侦探脸)", "score": 1, "types": ["OWL", "WAVE"] },
+      { "label": "ta 没回我也不回, 这局我赢 (装作很冷脸)", "score": 0, "types": ["SHELL", "PEAC"] },
+      { "label": "我没看见 ta 的消息. 我真的没看见. (其实点开了 13 次)", "score": -1, "types": ["BUNN", "LAMB"] }
     ]
   },
   {
     "id": 2,
     "dim": "AX",
-    "text": "对象今晚说要跟同事吃饭,10 点没回来,11 点没回来,12 点朋友圈刷出 ta 和一桌人合照——里面有个你不认识的异性坐在 ta 旁边。你——",
+    "text": "ta 今晚说要跟同事聚餐, 11 点没回, 12 点朋友圈刷出 ta 一桌人合照——里面有个你不认识的异性紧挨着 ta。你——",
     "scenario_emoji": "📸",
     "bubble": "深夜朋友圈爆破现场",
-    "avatar": "images/hamster.png",
+    "avatar": "images/dolphin.png",
     "options": [
-      { "label": "立刻截图放大看坐姿、距离、眼神,顺便翻对方三年朋友圈(侦探上线脸)", "score": 1, "types": ["PURS","CHAO"] },
-      { "label": "心里过一下,发条\"玩得开心啊\",等 ta 回来再说", "score": 0, "types": ["WEAV","PURS"] },
-      { "label": "关手机睡觉,ta 愿意怎样就怎样", "score": -1, "types": ["AVOI","ANCH"] }
+      { "label": "立刻截图放大看坐姿、距离、眼神, 顺便翻对方三年前朋友圈第一条 (FBI 模式)", "score": 2, "types": ["WAVE", "OWL"] },
+      { "label": "心里过一下, 装作淡定发条'玩得开心啊', 等 ta 回来观察口风", "score": 1, "types": ["LAMB", "PEN"] },
+      { "label": "关手机睡觉, ta 想干嘛干嘛, 我管不着 (其实在生闷气)", "score": 0, "types": ["SHELL", "WOLF"] },
+      { "label": "直接发'那个女的谁?'三个字过去 (不装了, 摊牌了)", "score": 1, "types": ["WAVE", "HUG"] }
     ]
   },
   {
     "id": 3,
     "dim": "AX",
-    "text": "只要 ta 今天语气比昨天冷一点点,我就能立刻感应到,并开始反思自己是不是哪里做错了。",
+    "text": "只要 ta 今天语气比昨天冷一格, 我就能立刻感应到, 并开始反思我是不是哪里做错了。",
     "scenario_emoji": "🌡️",
     "bubble": "语气感应雷达",
-    "avatar": "images/red_panda.png",
+    "avatar": "images/koala.png",
     "options": [
-      { "label": "太对了,我的雷达精准到可以拿诺贝尔(自嘲脸)", "score": 1, "types": ["PURS","CHAO"] },
-      { "label": "偶尔会,但我还能撑住不问", "score": 0, "types": ["ANCH","PURS"] },
-      { "label": "不会,ta 冷就冷,ta 的事", "score": -1, "types": ["AVOI","KIND"] }
+      { "label": "太对了, 我的雷达精度可以拿诺贝尔奖, 一根眉毛动我都能写小作文 (自嘲脸)", "score": 2, "types": ["HUG", "OWL"] },
+      { "label": "会感应到, 但会把小作文藏在备忘录, 不发出去 (内耗静音版)", "score": 1, "types": ["LAMB", "OWL"] },
+      { "label": "ta 冷就冷, ta 的事, 我先去刷剧 (壳一缩)", "score": 0, "types": ["SHELL", "BEE"] },
+      { "label": "ta 冷? 那我立刻冷回去, 看谁比谁冷 (PVP 模式)", "score": 1, "types": ["PEAC", "WOLF"] }
     ]
   },
   {
     "id": 4,
-    "dim": "AV",
-    "text": "你和 ta 在一起半年,ta 突然说\"我想更了解你,聊聊你小时候吧\"。你的第一反应——",
-    "scenario_emoji": "🚪",
-    "bubble": "情感 deep dive 邀请",
-    "avatar": "images/polar_bear.png",
+    "dim": "AX",
+    "text": "周日下午 3 点, ta 没主动找你, 朋友圈也没动静。你——",
+    "scenario_emoji": "🛋️",
+    "bubble": "周日下午综合症",
+    "avatar": "images/lamb.png",
     "options": [
-      { "label": "想找借口溜掉,\"先吃饭吧\"(转移话题大师)", "score": 1, "types": ["AVOI","CHAO"] },
-      { "label": "挑几件能讲的讲,敏感的先绕过去", "score": 0, "types": ["AVOI","KIND"] },
-      { "label": "认真坐下来讲,想讲到哪就讲到哪", "score": -1, "types": ["WEAV","ANCH"] }
+      { "label": "已经在脑里编完一个'ta 周末跟别人在一起 / ta 在家躺着不想理我'的 4D 剧场 (已读乱杀)", "score": 2, "types": ["OWL", "HUG"] },
+      { "label": "找借口发消息——'你那本书我看完了' / '你上次说的店今天去吃了吗' (有 idea 的勾搭师)", "score": 1, "types": ["PEN", "HUG"] },
+      { "label": "正好我也想自己待着, 周末是充电时间, 别来烦我 (独处宠儿)", "score": 0, "types": ["SHELL", "BEE"] },
+      { "label": "ta 不找我我就不找, 反正我'都行', 无所谓的 (其实下午 emo 了 3 次)", "score": -1, "types": ["LAMB", "BUNN"] }
     ]
   },
   {
     "id": 5,
-    "dim": "AV",
-    "text": "异地半年,ta 提议\"我们每天睡前视频 20 分钟吧\"。你——",
-    "scenario_emoji": "📹",
-    "bubble": "每日视频请求",
-    "avatar": "images/wolf.png",
+    "dim": "AX",
+    "text": "你和 ta 才聊了两周, 一天没收到 ta 主动消息, 你的真实心理活动——",
+    "scenario_emoji": "💭",
+    "bubble": "暧昧期心电图",
+    "avatar": "images/penguin.png",
     "options": [
-      { "label": "啊?每天?那也太粘了吧,我需要我自己的空间(窒息脸)", "score": 1, "types": ["AVOI","CHAO"] },
-      { "label": "可以试试,但不保证每天都在状态", "score": 0, "types": ["ANCH","KIND"] },
-      { "label": "好啊,我也想每天看到你(立刻开摄像头)", "score": -1, "types": ["PURS","WEAV"] }
+      { "label": "已经把 ta 每个朋友圈第一张图、抖音点赞列表全梳理一遍——找'ta 没那么喜欢我'的证据 (取证小能手)", "score": 2, "types": ["OWL", "PEN"] },
+      { "label": "立刻截图发闺蜜群——'姐妹这个怎么回事在线等' (求救信号)", "score": 1, "types": ["HUG", "WAVE"] },
+      { "label": "ta 不主动? 那我下次也别太主动, 不能让 ta 觉得我闲 (反向博弈)", "score": 0, "types": ["PEAC", "SHELL"] },
+      { "label": "ok 那今天我刷别人的朋友圈, 反正不止 ta 一个候选 (花蝴蝶模式)", "score": -1, "types": ["BEE", "PEAC"] }
     ]
   },
   {
     "id": 6,
     "dim": "AV",
-    "text": "当我在关系里不舒服时,我更倾向于——",
-    "scenario_emoji": "🫥",
-    "bubble": "不舒服应对模式",
-    "avatar": "images/angora.png",
+    "text": "你和 ta 在一起半年, ta 突然说'我想更了解你, 聊聊你小时候吧'。你的第一反应——",
+    "scenario_emoji": "🚪",
+    "bubble": "情感 deep dive 邀请",
+    "avatar": "images/hermit_crab.png",
     "options": [
-      { "label": "一个人消化,消化完也不一定讲,ta 察觉不了就算了", "score": 1, "types": ["AVOI","CHAO"] },
-      { "label": "先憋一会,憋不住了再说,但会挑着说", "score": 0, "types": ["AVOI","PURS","CHAO"] },
-      { "label": "直接告诉 ta,\"我现在很不舒服,我们聊聊\"", "score": -1, "types": ["WEAV","ANCH"] }
+      { "label": "想找借口溜——'先吃饭吧 / 我去洗澡 / 那个剧好看吗', 转移话题三连 (壳门关上)", "score": 2, "types": ["SHELL", "BUNN"] },
+      { "label": "挑几件能讲的讲, 涉及家里的、童年的, 自动跳过 (筛选式坦诚)", "score": 1, "types": ["WOLF", "SHELL"] },
+      { "label": "认真坐下来讲, 想讲到哪就讲到哪, 反正是 ta (信任全开)", "score": -1, "types": ["PEN", "HUG"] },
+      { "label": "讲是讲, 但要边讲边观察 ta 的反应, 反应不对我立刻收回去 (试探性开壳)", "score": 0, "types": ["LAMB", "OWL"] }
     ]
   },
   {
     "id": 7,
-    "dim": "PA",
-    "text": "同时摆在你面前两个选项:A 跟你一见钟情、激情拉满但半年后可能散的对象 / B 踏实稳定、未来十年不吵架但你心跳 72 永远不超 80 的对象。你选——",
-    "scenario_emoji": "🔥",
-    "bubble": "烈火 vs 温水",
-    "avatar": "images/lion_cub.png",
+    "dim": "AV",
+    "text": "异地半年, ta 提议'我们每天睡前视频 20 分钟吧'。你——",
+    "scenario_emoji": "📹",
+    "bubble": "每日视频请求",
+    "avatar": "images/wolf_cub.png",
     "options": [
-      { "label": "A,三个月烈火总好过三年温水(燃烧脸)", "score": 1, "types": ["KIND","PURS","CHAO"] },
-      { "label": "两个都想要,能不能组合一下?", "score": 0, "types": ["KIND","WEAV"] },
-      { "label": "B,心跳 72 挺好的,我想过到八十岁", "score": -1, "types": ["ANCH","AVOI"] }
+      { "label": "啊?每天?那也太粘了吧, 我需要呼吸的空间 (窒息脸)", "score": 2, "types": ["SHELL", "BEE"] },
+      { "label": "可以试试, 但不保证每天都状态 ok, 我懒得挂相 (低承诺接单)", "score": 1, "types": ["WOLF", "SHELL"] },
+      { "label": "好啊我也想每天看到你! (立刻开摄像头, 还想加一句'要看到你睡着') ", "score": -1, "types": ["HUG", "PEN"] },
+      { "label": "20 分钟? 那不如周末连一整天 (上头模式)", "score": 0, "types": ["PEN", "WAVE"] }
     ]
   },
   {
     "id": 8,
-    "dim": "PA",
-    "text": "你和对象在一起一年半,最近亲密度降到\"晚安宝贝\"就完事儿。你觉得——",
-    "scenario_emoji": "🫧",
-    "bubble": "恋爱降温警报",
-    "avatar": "images/pony.png",
+    "dim": "AV",
+    "text": "你和 ta 第一次大吵, ta 越说越凶。你的身体反应是——",
+    "scenario_emoji": "🚨",
+    "bubble": "战还是逃",
+    "avatar": "images/rabbit.png",
     "options": [
-      { "label": "不行,这日子没法过了,得搞点刺激的(今晚就订酒店那种)", "score": 1, "types": ["KIND","PURS","CHAO"] },
-      { "label": "找个周末好好聊聊,看怎么重新点火", "score": 0, "types": ["WEAV","ANCH"] },
-      { "label": "稳定关系就是这样,挺好的,不用折腾", "score": -1, "types": ["ANCH","AVOI"] }
+      { "label": "脑子直接 404, 想立刻消失——'我去趟厕所' / 拿了外套就走 (本能跑路)", "score": 2, "types": ["BUNN", "SHELL"] },
+      { "label": "脸上面无表情, 心里早离场了, 接下来就是机械点头 (精神已逃逸)", "score": 1, "types": ["SHELL", "LAMB"] },
+      { "label": "声音越来越小但不走, 一边听一边在心里写小作文 (静音内耗)", "score": 0, "types": ["LAMB", "OWL"] },
+      { "label": "硬刚回去, 嘴上比谁都狠, 但回家会哭 (嘴硬糖心)", "score": -1, "types": ["WOLF", "WAVE"] }
     ]
   },
   {
     "id": 9,
-    "dim": "PA",
-    "text": "凌晨一点你和 ta 躺在床上,ta 突然问:\"如果我们变成那种'晚安宝贝就完事儿'的关系,你会怎么样?\"你的真心话——",
-    "scenario_emoji": "💫",
-    "bubble": "凌晨灵魂拷问",
-    "avatar": "images/husky.png",
+    "dim": "AV",
+    "text": "ta 说'我们这周末一起去你家附近, 跟你妈打个招呼'。你的真实反应——",
+    "scenario_emoji": "🏠",
+    "bubble": "见家长邀请",
+    "avatar": "images/koala.png",
     "options": [
-      { "label": "那我会想跑,心跳和新鲜感没了我撑不住(摊牌脸)", "score": 1, "types": ["KIND","CHAO"] },
-      { "label": "我会想办法重新点火,激情和稳定我都不想丢", "score": 0, "types": ["PURS","WEAV","CHAO"] },
-      { "label": "挺好啊,踏实过日子才是关系本来的样子", "score": -1, "types": ["ANCH","AVOI"] }
+      { "label": "啊? 现在? 太快了吧, 我还没准备好——'我妈最近忙'(临时找理由 buff)", "score": 2, "types": ["SHELL", "BUNN"] },
+      { "label": "好啊我都想好了你穿哪件衬衫了, 顺便我妈最爱吃啥也告诉你 (家长见面预备役)", "score": -1, "types": ["PEN", "HUG"] },
+      { "label": "看 ta 是认真的还是随便说说, 如果是真的我再认真考虑 (审核环节)", "score": 0, "types": ["PEAC", "WOLF"] },
+      { "label": "都行你定 (其实凌晨开始焦虑要穿什么、要说什么、要不要剪头发)", "score": 1, "types": ["LAMB", "OWL"] }
     ]
   },
   {
     "id": 10,
-    "dim": "CM",
-    "text": "你拿到了一个超心动的 offer——月薪翻倍、城市很酷、唯一问题:要搬到离 ta 1800 公里外,至少两年。你——",
-    "scenario_emoji": "✈️",
-    "bubble": "1800 公里抉择",
-    "avatar": "images/deer.png",
+    "dim": "AV",
+    "text": "ta 提议'我们以后所有 password 都共用吧, 你 Apple ID / Spotify / 网易云 / 美团我都登一下'。你——",
+    "scenario_emoji": "🔐",
+    "bubble": "共享账号请求",
+    "avatar": "images/hermit_crab.png",
     "options": [
-      { "label": "当然去,关系可以远程维系,机会过了就没了", "score": 1, "types": ["KIND","AVOI"] },
-      { "label": "先跟 ta 认真聊,两个人一起做决定", "score": 0, "types": ["ANCH","WEAV"] },
-      { "label": "不去了,我不想为工作把 ta 放后面", "score": -1, "types": ["PURS","WEAV"] }
+      { "label": "停, 我有自己的边界, 账号是我精神洁癖的最后一块自留地 (拒绝)", "score": 2, "types": ["SHELL", "BEE"] },
+      { "label": "好啊连同我备忘录一起给你看 (零边界示爱)", "score": -1, "types": ["HUG", "PEN"] },
+      { "label": "可以共享一两个, 但'你别看我私人歌单, 那是我的精神遗书' (有限开放)", "score": 0, "types": ["WOLF", "OWL"] },
+      { "label": "等等让我想想——其实我有点慌, 但又不好意思拒绝你 (僵硬笑)", "score": 1, "types": ["LAMB", "BUNN"] }
     ]
   },
   {
     "id": 11,
-    "dim": "CM",
-    "text": "关于\"以后\"——五年后、十年后、一起买房、结婚、养娃、养猫养狗——你——",
-    "scenario_emoji": "🏡",
-    "bubble": "未来规划度",
-    "avatar": "images/brown_bear.png",
+    "dim": "EX",
+    "text": "ta 今天惹你生气了, ta 问'你怎么了'。你最经典的回答是——",
+    "scenario_emoji": "🤐",
+    "bubble": "我没事 测谎仪",
+    "avatar": "images/wolf_cub.png",
     "options": [
-      { "label": "我和 ta 已经把猫的名字都想好了(未来规划脑)", "score": 1, "types": ["ANCH","WEAV"] },
-      { "label": "会聊一些,但不敢想太远", "score": 0, "types": ["PURS","KIND","CHAO"] },
-      { "label": "不想规划,过好今天就行,以后鬼知道", "score": -1, "types": ["KIND","AVOI","CHAO"] }
+      { "label": "'我没事' (本人脸已经写满了 8 行小作文)", "score": 2, "types": ["WOLF", "LAMB"] },
+      { "label": "'你自己想想吧' (送命题已发送)", "score": 1, "types": ["WOLF", "PEAC"] },
+      { "label": "直接说出来——'你刚那句话让我难受了, 我们聊聊' (情绪表达成年人)", "score": -1, "types": ["PEN", "HUG"] },
+      { "label": "立刻开始哭, 哭到 ta 慌, 然后我自己也不知道在哭什么 (情绪海啸)", "score": 0, "types": ["WAVE", "HUG"] }
     ]
   },
   {
     "id": 12,
-    "dim": "CM",
-    "text": "你的朋友约你周六爬山——同一天 ta 说\"我今天心情不太好,能过来陪我吗\"。你——",
-    "scenario_emoji": "⚖️",
-    "bubble": "周六两难",
-    "avatar": "images/sheep.png",
+    "dim": "EX",
+    "text": "你今天难过到极点, ta 在身边。你最自然会做的事是——",
+    "scenario_emoji": "😔",
+    "bubble": "崩溃时刻处置流程",
+    "avatar": "images/lamb.png",
     "options": [
-      { "label": "立刻推掉朋友,直接过去陪 ta,ta 最重要", "score": 1, "types": ["PURS","WEAV"] },
-      { "label": "跟朋友说改期,但会稍微委屈一下", "score": 0, "types": ["PURS","CHAO"] },
-      { "label": "朋友约在先,让 ta 自己调节,或者晚上再过去", "score": -1, "types": ["KIND","AVOI"] }
+      { "label": "钻 ta 怀里大哭一场, 边哭边说'你不能离开我' (情绪全交付)", "score": 2, "types": ["HUG", "WAVE"] },
+      { "label": "笑着说'我没事啦, 你饿不饿我去做饭' (强行营业, 凌晨再哭)", "score": 1, "types": ["LAMB", "BUNN"] },
+      { "label": "一个人躲进卫生间或者直接回房间锁门, 不想被看到 (壳启动)", "score": 0, "types": ["SHELL", "BUNN"] },
+      { "label": "嘴上嘴硬'我真的没事', 但身体很诚实地往 ta 怀里钻 (嘴硬糖心)", "score": -1, "types": ["WOLF", "WAVE"] }
     ]
   },
   {
     "id": 13,
-    "dim": "CF",
-    "text": "你和 ta 昨晚大吵一架,都说了狠话摔了门。早上醒来,你——",
-    "scenario_emoji": "🌅",
-    "bubble": "吵架隔夜处理",
-    "avatar": "images/cowcat.png",
+    "dim": "EX",
+    "text": "你今天过得很糟, 但你和 ta 约好今天去吃饭。饭桌上你——",
+    "scenario_emoji": "🍽️",
+    "bubble": "硬撑式约会",
+    "avatar": "images/peacock.png",
     "options": [
-      { "label": "先起来给 ta 煮碗面,主动说\"昨晚我也有不对\"(修复优先)", "score": 1, "types": ["ANCH","WEAV"] },
-      { "label": "不说话,假装没事一起吃早饭,等 ta 先开口", "score": 0, "types": ["AVOI","PURS"] },
-      { "label": "冷战到底,ta 不道歉我绝不先低头", "score": -1, "types": ["CHAO","KIND"] }
+      { "label": "全程营业, 笑得比平时还甜, 回家路上自己消化掉 (老演员)", "score": 2, "types": ["LAMB", "PEAC"] },
+      { "label": "状态不在线, ta 问就说'有点累', 但不会展开讲 (隔层防护)", "score": 1, "types": ["SHELL", "WOLF"] },
+      { "label": "坐下第一句就是'今天我状态不好, 你陪我吃就行, 不用聊' (情绪 SOS)", "score": -1, "types": ["HUG", "WAVE"] },
+      { "label": "本来想撑, 撑到上甜点的时候突然破防, 在店里掉眼泪 (情绪决堤)", "score": 0, "types": ["WAVE", "OWL"] }
     ]
   },
   {
     "id": 14,
-    "dim": "CF",
-    "text": "你和 ta 在饭桌上越吵越凶,ta 端起酒杯一口闷下去,眼眶红了。你——",
-    "scenario_emoji": "🍷",
-    "bubble": "饭桌对线升级中",
-    "avatar": "images/wolf.png",
+    "dim": "EX",
+    "text": "ta 给你买了你说想要很久的那个东西。你打开盒子的瞬间, 你的反应是——",
+    "scenario_emoji": "🎁",
+    "bubble": "惊喜暴击现场",
+    "avatar": "images/peacock.png",
     "options": [
-      { "label": "悄悄把酒杯端走,放低声音说\"我们先停一下,这样讲下去会更糟\"(软启动+踩刹车)", "score": 1, "types": ["ANCH","WEAV"] },
-      { "label": "看着 ta 眼眶红也心疼,但话已经堵在嗓子眼,继续把要讲的讲完", "score": 0, "types": ["PURS","CHAO"] },
-      { "label": "当场回一句更狠的,\"哭有什么用,你妈就是这样把你带大的吧\"(伤害升级)", "score": -1, "types": ["CHAO","KIND","PURS"] }
+      { "label": "立刻尖叫扑到 ta 身上亲一口, 同时拿出手机拍九宫格发朋友圈 (高调宣示主权)", "score": 2, "types": ["PEAC", "HUG"] },
+      { "label": "嘴上说'哎呀这个不便宜啊干嘛买', 心里已经在想'你怎么这么了解我' (傲娇糖心)", "score": 1, "types": ["WOLF", "OWL"] },
+      { "label": "认真说一句'谢谢, 我超喜欢', 然后郑重收好 (低调感动派)", "score": 0, "types": ["PEN", "SHELL"] },
+      { "label": "整个人懵住——'你怎么花这个钱, 不用啊', 然后开始内耗值不值得 (受宠若惊)", "score": -1, "types": ["LAMB", "BUNN"] }
     ]
   },
   {
     "id": 15,
-    "dim": "CF",
-    "text": "吵完架三天了,你和 ta 还没和好,每天发消息都像客服对话。你——",
-    "scenario_emoji": "🥶",
-    "bubble": "冷战第三天",
-    "avatar": "images/penguin.png",
+    "dim": "EX",
+    "text": "ta 朋友圈发了张你不知道的合照——是 ta 跟一群朋友, 你不在那张照片里。你——",
+    "scenario_emoji": "📷",
+    "bubble": "朋友圈情绪测验",
+    "avatar": "images/dolphin.png",
     "options": [
-      { "label": "直接打电话过去,\"我想你了,我们别这样了\"(破冰全开)", "score": 1, "types": ["ANCH","WEAV"] },
-      { "label": "找个小借口约 ta 吃饭,不提吵架的事", "score": 0, "types": ["AVOI","KIND","CHAO"] },
-      { "label": "继续冷着,谁先服软谁就输了", "score": -1, "types": ["CHAO","AVOI"] }
+      { "label": "立刻心里咯噔一下, 评论区先点个赞装大度, 然后凌晨发小作文 (前台云淡风轻 后台情绪海啸)", "score": 2, "types": ["WAVE", "OWL"] },
+      { "label": "直接发 ta'你今天玩得这么开心都没叫我' (撒娇式查岗)", "score": 1, "types": ["HUG", "WAVE"] },
+      { "label": "ta 跟朋友玩 ta 的, 我跟朋友玩我的, 各自精彩 (理智派)", "score": -1, "types": ["BEE", "SHELL"] },
+      { "label": "假装没看到, 其实那张照片我已经放大研究 17 次了 (嘴硬看图派)", "score": 0, "types": ["WOLF", "OWL"] }
     ]
   },
   {
     "id": 16,
-    "dim": "LL",
-    "text": "ta 今天加班到 10 点,刚到家瘫在沙发上一句话不想说。你最自然会做的事是——",
-    "scenario_emoji": "🌙",
-    "bubble": "加班夜表达",
-    "avatar": "images/squirrel.png",
+    "dim": "CO",
+    "text": "你和 ta 暧昧两个月, 中间还有另一个 candidate 也在追你, 也很合适。你——",
+    "scenario_emoji": "🌹",
+    "bubble": "双线暧昧时间",
+    "avatar": "images/bee.png",
     "options": [
-      { "label": "二话不说去煮个面、放好洗澡水、把袜子从地上捡起来(Acts of Service 满级)", "score": 1, "types": ["WEAV","ANCH"] },
-      { "label": "凑过去发条\"辛苦啦宝贝,我超爱你\"的小作文,顺便点个外卖", "score": 0, "types": ["WEAV","PURS"] },
-      { "label": "我也累,各自瘫各自的吧,ta 自己能搞定", "score": -1, "types": ["AVOI","CHAO"] }
+      { "label": "锁一个, 另一个直接断, 我没法两边走, 我会内耗死 (一对一原教旨主义)", "score": 2, "types": ["PEN", "HUG"] },
+      { "label": "都很好啊, 都先聊着, 谁说一定要锁定 (蜜源采集中)", "score": -1, "types": ["BEE", "PEAC"] },
+      { "label": "看谁先 commit, 谁先把话说死, 我就选谁 (审核员上线)", "score": 1, "types": ["PEAC", "WOLF"] },
+      { "label": "我已经想锁了但又怕选错, 在两个聊天框中间反复横跳 (选择困难内耗)", "score": 0, "types": ["OWL", "LAMB"] }
     ]
   },
   {
     "id": 17,
-    "dim": "LL",
-    "text": "你和 ta 在一起三个月,关于\"你哪里好看 / 你今天这样真的迷人 / 我真的很喜欢你 xxx\"这种话,你——",
-    "scenario_emoji": "💌",
-    "bubble": "肉麻浓度自检",
-    "avatar": "images/pig.png",
+    "dim": "CO",
+    "text": "你和 ta 第三次约会, ta 问'我们是男女朋友吗'。你——",
+    "scenario_emoji": "💍",
+    "bubble": "DTR 时刻",
+    "avatar": "images/penguin.png",
     "options": [
-      { "label": "每天起床第一件事就是夸 ta 一句具体的(\"今天这件衬衫把你脖子衬得真好看\"那种)(甜腻发射器)", "score": 1, "types": ["WEAV","PURS","KIND"] },
-      { "label": "重要时刻会说,日常不会刻意挂嘴边", "score": 0, "types": ["ANCH","WEAV"] },
-      { "label": "说不出口,我更愿意用行动,夸人这事儿太尴尬了", "score": -1, "types": ["ANCH","AVOI"] }
+      { "label": "立刻'是啊, 我都想好周末把你介绍给我闺蜜了' (速锁脑)", "score": 2, "types": ["PEN", "HUG"] },
+      { "label": "'再看看吧, 我觉得还需要更多了解' (慢热保留派)", "score": 1, "types": ["SHELL", "PEAC"] },
+      { "label": "'啊?你这么快就要确定关系吗?'(惊吓后退两步)", "score": 0, "types": ["BUNN", "BEE"] },
+      { "label": "'我也不知道, 你想怎样就怎样' (其实想锁但不敢说)", "score": -1, "types": ["LAMB", "WOLF"] }
     ]
   },
   {
     "id": 18,
-    "dim": "LL",
-    "text": "如果只能保留一种 ta 表达爱的方式,其他都得砍掉——你最舍不得失去的是?(忍痛三选一)",
-    "scenario_emoji": "🎁",
-    "bubble": "爱的语言盲选题",
-    "avatar": "images/fox.png",
+    "dim": "CO",
+    "text": "你刚刚拿到一个超心动 offer——月薪翻倍、城市很酷、唯一问题: 要搬到离 ta 1800 公里外, 至少两年。你——",
+    "scenario_emoji": "✈️",
+    "bubble": "1800 公里抉择",
+    "avatar": "images/peacock.png",
     "options": [
-      { "label": "高质量陪伴——周末两人关掉手机窝在一起一整天那种(Quality Time 选手)", "score": 1, "types": ["WEAV","ANCH"] },
-      { "label": "一次很稳的拥抱 / 牵手 / 头靠在我肩上(Physical Touch 选手)", "score": 0, "types": ["WEAV","PURS"] },
-      { "label": "ta 把心思花在挑礼物上——一份正中红心的好东西(Receiving Gifts 选手)", "score": -1, "types": ["KIND","ANCH"] }
+      { "label": "当然去, 关系可以远程, 机会过了就没了 (事业为王)", "score": 2, "types": ["PEAC", "BEE"] },
+      { "label": "拒绝, 我想留在 ta 身边, 工作可以再找 (一对一 all-in)", "score": -1, "types": ["PEN", "HUG"] },
+      { "label": "先跟 ta 认真聊, 看 ta 的态度再决定 (依赖型决策)", "score": 0, "types": ["LAMB", "HUG"] },
+      { "label": "去, 但偷偷想'反正去了也许就能换一个新的 ta' (理性逃跑)", "score": 1, "types": ["BEE", "SHELL"] }
+    ]
+  },
+  {
+    "id": 19,
+    "dim": "CO",
+    "text": "你和 ta 在一起 8 个月, 你现在脑子里关于'未来'的画面密度是——",
+    "scenario_emoji": "🏡",
+    "bubble": "未来规划脑扫描",
+    "avatar": "images/penguin.png",
+    "options": [
+      { "label": "我和 ta 的猫的名字、买哪个区的房、孩子叫什么、婚礼现场我穿什么——全部想好了 (CPU 已 4D 建模)", "score": 2, "types": ["PEN", "HUG"] },
+      { "label": "会聊一些, 但不敢想太远, 我怕想多了 ta 跑了 (低调护盘)", "score": 1, "types": ["LAMB", "OWL"] },
+      { "label": "不想规划, 过好今天就行, 谁知道一年后还在不在一起 (保留撤退权)", "score": 0, "types": ["BEE", "SHELL"] },
+      { "label": "ta 不主动聊未来我就不聊, 但凌晨自己偷偷在小红书搜婚纱 (嘴硬糖心)", "score": -1, "types": ["WOLF", "OWL"] }
+    ]
+  },
+  {
+    "id": 20,
+    "dim": "CO",
+    "text": "你和 ta 已经稳定一年, 朋友圈 / 抖音不断有新认识的优质异性主动来撩你。你——",
+    "scenario_emoji": "🐝",
+    "bubble": "诱惑出现时",
+    "avatar": "images/bee.png",
+    "options": [
+      { "label": "我已经有 ta 了, 其他人哪怕条件再好我都自动屏蔽, 一对一就是一对一 (纯爱战神)", "score": 2, "types": ["PEN", "HUG"] },
+      { "label": "新朋友可以聊, 暧昧不行, 但就是喜欢被新认识的人喜欢的感觉 (心动嗅觉敏感)", "score": 1, "types": ["WAVE", "PEAC"] },
+      { "label": "ta 也不会知道, 多个朋友多条路, 没什么关系不关系的 (隐形采蜜)", "score": -1, "types": ["BEE", "SHELL"] },
+      { "label": "看到优质的我会有一秒动摇, 但下一秒立刻自责到失眠 (内耗道德委员会)", "score": 0, "types": ["OWL", "LAMB"] }
     ]
   }
 ]

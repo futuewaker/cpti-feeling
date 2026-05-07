@@ -75,15 +75,18 @@
     result: null,         // solo: 6-type object
     coupleResult: null,   // couple: pair object + left/right animals
     matchPick: { left: null, right: null },
-    userVec: [0, 0, 0, 0, 0, 0],
+    userVec: [0, 0, 0, 0],
     isAnimating: false
   };
 
-  // CPTI 6 维 (questions.json 的 dim 字段对齐):
-  //   AX 依恋焦虑 / AV 依恋回避 / PA 激情主导 / CM 承诺投入 / CF 冲突修复 / LL 爱的语言
-  const DIM_IDX = { AX: 0, AV: 1, PA: 2, CM: 3, CF: 4, LL: 5 };
-  const DIM_LABELS = ['依恋焦虑', '依恋回避', '激情温度', '承诺浓度', '修复力', '表达力'];
+  // CPTI v2 · 4 维 (questions.json 的 dim 字段对齐):
+  //   AX 依恋焦虑 / AV 依恋回避 / EX 情绪外显 / CO 承诺锁定
+  const DIM_IDX = { AX: 0, AV: 1, EX: 2, CO: 3 };
+  const DIM_LABELS = ['依恋焦虑', '依恋回避', '情绪外显', '承诺锁定'];
   const DIM_COUNT = DIM_LABELS.length;
+  const SCORE_MIN_PER_DIM = -5;  // 5 题 × min score(-1)
+  const SCORE_MAX_PER_DIM = 10;  // 5 题 × max score(+2)
+  const SCORE_RANGE_PER_DIM = SCORE_MAX_PER_DIM - SCORE_MIN_PER_DIM;
   const ANIM_MS = 280;
   const FLASH_MS = 320;
   const NEXT_DELAY = 260;
@@ -501,57 +504,14 @@
   }
 
   // ------------------------------------------------------------
-  // SOLO RESULT · prototype-matching classifier
+  // SOLO RESULT · typeHits voting classifier (CPTI v2)
   // ------------------------------------------------------------
-  // 6 类型在 6 维 (AX/AV/PA/CM/CF/LL) 上的目标轮廓,值域 [-1, +1]。
-  // userVec 归一化后跟它做 cosine similarity,最相似者胜出。
-  const PROTOTYPES = {
-    PURS: [+0.8, -0.4, +0.6, +0.4, +0.3, +0.5],   // 高焦虑+高激情+主动表达
-    AVOI: [-0.5, +0.9, -0.2, -0.1, -0.5, -0.6],   // 高回避+低表达+撤退
-    ANCH: [-0.6, -0.5, +0.0, +0.7, +0.7, +0.4],   // 低焦低避+高承诺+高修复
-    CHAO: [+0.7, +0.7, +0.5, -0.3, -0.6, -0.2],   // 焦+避都高+低修复
-    KIND: [+0.0, -0.1, +0.9, -0.7, -0.2, +0.5],   // 高激情+低承诺
-    WEAV: [+0.2, -0.4, +0.2, +0.5, +0.7, +0.8]    // 高表达+高修复+略焦虑驯服
-  };
-  const PROTOTYPE_MAX_ABS = 3;          // 每维最多 3 题, score ∈ {-1,0,+1} → 累加值域 [-3, +3]
-  const WEAK_SIGNAL_NORM = 0.15;        // 归一化后若 ||vec|| < 该阈值,视为弱信号
-  const TIE_BREAK_DELTA  = 0.05;        // sim 差小于此值算平,用 typeHits 作 secondary 决策
-
-  function classifyByPrototype(userVec) {
-    // 1. 归一化: 除以每维最大可能绝对值 → [-1, +1]
-    const normVec = userVec.map(function (v) { return v / PROTOTYPE_MAX_ABS; });
-    const userNorm = Math.sqrt(normVec.reduce(function (s, v) { return s + v * v; }, 0));
-
-    // 2. 弱信号 fallback: vector 接近 0 → 用户基本全选中立
-    if (userNorm < WEAK_SIGNAL_NORM) {
-      return { typeId: 'ANCH', confidence: 0, fallbackReason: 'weak signal' };
-    }
-
-    // 3. cosine similarity vs 每个 prototype
-    const sims = {};
-    Object.keys(PROTOTYPES).forEach(function (tid) {
-      const proto = PROTOTYPES[tid];
-      let dot = 0, protoNorm2 = 0;
-      for (let i = 0; i < DIM_COUNT; i++) {
-        dot += normVec[i] * proto[i];
-        protoNorm2 += proto[i] * proto[i];
-      }
-      const denom = userNorm * Math.sqrt(protoNorm2);
-      sims[tid] = denom > 0 ? dot / denom : 0;
-    });
-
-    // 4. 取最高 sim; 平票区(差 < TIE_BREAK_DELTA)交给上层用 typeHits 决断
-    const ranked = Object.keys(sims).sort(function (a, b) { return sims[b] - sims[a]; });
-    return {
-      typeId: ranked[0],
-      confidence: sims[ranked[0]],
-      sims: sims,
-      ranked: ranked
-    };
-  }
+  // 10 类型直接由 questions.json 的 options[].types 数组累计投票决定。
+  // 每选项给 1-3 个 type 加 1 分,top type 胜出。userVec 仅用于雷达可视化。
+  const WEAK_SIGNAL_THRESHOLD = 4;   // 全部 typeHits 总和 < 该值视为弱信号
 
   function computeResult() {
-    // 1. Build radar vector
+    // 1. Build radar vector (userVec, 4 dims)
     const userVec = new Array(DIM_COUNT).fill(0);
     state.answers.forEach(function (a) {
       if (!a) return;
@@ -560,44 +520,34 @@
     });
     state.userVec = userVec;
 
-    // 2. Prototype matching → 主决策
-    const protoResult = classifyByPrototype(userVec);
-    state.weakSignal = protoResult.fallbackReason === 'weak signal';
-
-    // 3. typeHits 累加 (用作 sanity log + 平票 tie-break)
-    const typeHits = {};
+    // 2. typeHits voting
     const typeIds = (state.couples.types || []).map(function (t) { return t.id; });
+    const typeHits = {};
     typeIds.forEach(function (tid) { typeHits[tid] = 0; });
-    state.answers.forEach(function (a, i) {
+    state.answers.forEach(function (a) {
       if (!a) return;
-      const q = state.questions[i];
-      if (!q) return;
-      const opt = (q.options || []).find(function (o) { return o.score === a.score; });
-      if (!opt) return;
-      const types = Array.isArray(opt.types) ? opt.types : (Array.isArray(a.types) ? a.types : []);
+      const types = Array.isArray(a.types) ? a.types : [];
       types.forEach(function (tid) { if (tid in typeHits) typeHits[tid] += 1; });
     });
 
-    // 4. Tie-break: 若前两个 prototype sim 差 < 阈值,用 typeHits 高者胜
-    let winnerId = protoResult.typeId;
-    if (!state.weakSignal && protoResult.ranked && protoResult.ranked.length >= 2) {
-      const top1 = protoResult.ranked[0];
-      const top2 = protoResult.ranked[1];
-      if (Math.abs(protoResult.sims[top1] - protoResult.sims[top2]) < TIE_BREAK_DELTA) {
-        winnerId = (typeHits[top1] || 0) >= (typeHits[top2] || 0) ? top1 : top2;
-      }
-    }
+    const totalHits = Object.values(typeHits).reduce(function (s, v) { return s + v; }, 0);
+    state.weakSignal = totalHits < WEAK_SIGNAL_THRESHOLD;
 
-    // 5. Sanity log: 看 prototype vs voting 是否一致,留给后续调参
-    const votingWinner = typeIds.slice().sort(function (a, b) { return typeHits[b] - typeHits[a]; })[0];
-    console.log('[CPTI classify]', {
-      prototype_winner: protoResult.typeId,
-      proto_sim: protoResult.confidence.toFixed(2),
-      label_voting_winner: votingWinner,
-      typeHits: typeHits
+    // 3. 取 top type, 平票时按 typeIds 顺序 (稳定)
+    const winnerId = typeIds.slice().sort(function (a, b) {
+      const diff = (typeHits[b] || 0) - (typeHits[a] || 0);
+      if (diff !== 0) return diff;
+      return typeIds.indexOf(a) - typeIds.indexOf(b);
+    })[0];
+
+    console.log('[CPTI v2 classify]', {
+      winner: winnerId,
+      typeHits: typeHits,
+      totalHits: totalHits,
+      weakSignal: state.weakSignal,
+      userVec: userVec
     });
 
-    // 6. 取出 type 对象 (以 prototype winner / tie-break 后为准)
     let result = (state.couples.types || []).find(function (t) { return t.id === winnerId; });
     if (!result) result = (state.couples.types || [])[0];
 
@@ -639,11 +589,11 @@
     el.resultImage.src = typeImage;
     el.resultImage.alt = t.name_cn || t.name || '';
 
-    el.resultNameTitle.textContent = t.name_title ? t.name_title + ' ' : '';
+    el.resultNameTitle.textContent = t.name_title ? t.name_title + ' ' : (t.id ? t.id + ' ' : '');
     el.resultName.textContent      = t.name_cn || t.name || '';
 
-    el.resultQuote.textContent = t.punchline || t.slogan || '';
-    if (el.resultQuickReview) el.resultQuickReview.textContent = t.quick_review || '';
+    el.resultQuote.textContent = t.tagline || t.punchline || t.slogan || '';
+    if (el.resultQuickReview) el.resultQuickReview.textContent = t.one_liner || t.quick_review || '';
     el.resultInterpretation.textContent = t.interpretation || '';
 
     el.resultTags.innerHTML = '';
@@ -657,7 +607,7 @@
 
     if (el.resultCatchphrases) {
       el.resultCatchphrases.innerHTML = '';
-      const phrases = t.catchphrases || [];
+      const phrases = t.monologue || t.catchphrases || [];
       if (phrases.length) {
         phrases.forEach(function (phrase) {
           const d = document.createElement('div');
@@ -676,8 +626,9 @@
     drawRadar(el.radarCanvas, state.userVec);
 
     // 副属性: 依恋焦虑 (userVec[0]=AX) + 依恋回避 (userVec[1]=AV) — CPTI 关系核心两轴
-    const axPct = Math.round(((state.userVec[0] + 4) / 8) * 100);
-    const avPct = Math.round(((state.userVec[1] + 4) / 8) * 100);
+    // 5 题/维, score [-1, +2] → 单维范围 [-5, +10],映射到 [0, 100]
+    const axPct = Math.max(0, Math.min(100, Math.round(((state.userVec[0] + 5) / 15) * 100)));
+    const avPct = Math.max(0, Math.min(100, Math.round(((state.userVec[1] + 5) / 15) * 100)));
     if (el.resultMdValue) el.resultMdValue.textContent = axPct + '%';
     if (el.resultNzValue) el.resultNzValue.textContent = avPct + '%';
     if (el.resultMdNote)  el.resultMdNote.textContent  = anxiNoteFor(axPct);
@@ -808,7 +759,12 @@
     //         但用户的"我"是 fox(AVOI),报告里却写"你(PURS)..." → 视角错位
     const couples = (state.couples && state.couples.couples) || [];
     function findPair(lt, rt) {
-      return couples.find(function (c) { return c.left === lt && c.right === rt; }) || null;
+      return couples.find(function (c) {
+        // CPTI v2 uses type_a/type_b; legacy used left/right
+        const a = c.type_a || c.left;
+        const b = c.type_b || c.right;
+        return a === lt && b === rt;
+      }) || null;
     }
 
     // 1. 严格方向优先
@@ -834,10 +790,13 @@
       if (pair) usedSecondary = true;
     }
 
-    // 副人格匹配的 compat_score 轻微贴现 -5 (clamp 到 [20, 95])
-    if (usedSecondary && pair && typeof pair.compat_score === 'number') {
+    // 副人格匹配的 compatibility 轻微贴现 -5 (clamp 到 [20, 95])
+    if (usedSecondary && pair) {
+      const cur = (typeof pair.compatibility === 'number' ? pair.compatibility
+                  : typeof pair.compat_score === 'number' ? pair.compat_score
+                  : 70);
       pair = Object.assign({}, pair, {
-        compat_score: Math.max(20, Math.min(95, pair.compat_score - 5)),
+        compatibility: Math.max(20, Math.min(95, cur - 5)),
         _via_secondary: true
       });
     }
@@ -860,16 +819,17 @@
     const lName = typeNameFor(lt);
     const rName = typeNameFor(rt);
     return {
-      id: lt + '_' + rt,
-      left: lt,
-      right: rt,
+      pair_id: lt + '_' + rt,
+      type_a: lt,
+      type_b: rt,
       title: lName + ' × ' + rName,
-      subtitle: '一段关系的两种模式,彼此给对方新的镜子。',
-      compat_score: 70,
-      dynamics: '你们的节奏不同,这既是吸引也是磨合。',
-      strengths: '互补才有张力;不同频率让关系不无聊。',
-      risks: '表达方式错位时容易误解。',
-      repair: '每周一次诚实复盘;用对方的语言翻译自己。'
+      summary: '一段关系的两种模式,彼此给对方一面新的镜子。',
+      compatibility: 70,
+      vibe_tag: '✨ 互补型',
+      interpretation: '你们的节奏不同, 这既是吸引也是磨合 — 当差异变成共同语言, 关系会比同频更有张力。',
+      highlight: '互补才有张力, 不同频率让关系不无聊',
+      warning: '表达方式错位时容易误解 ta 的好意',
+      advice: '每周一次诚实复盘, 用对方的语言翻译自己'
     };
   }
 
@@ -917,21 +877,25 @@
     }
     if (el.coupleTitle)    el.coupleTitle.textContent    = pair.title    || '未定义配对';
     if (el.coupleSubtitle) {
-      const baseSub = pair.subtitle || '';
+      const baseSub = pair.summary || pair.subtitle || pair.vibe_tag || '';
       el.coupleSubtitle.textContent = pair._via_secondary
         ? (baseSub + ' (基于副人格匹配)').trim()
         : baseSub;
     }
 
-    if (el.coupleScore)     el.coupleScore.textContent     = (pair.compat_score != null ? pair.compat_score : '--');
-    if (el.coupleScoreNote) el.coupleScoreNote.textContent = pair.compat_note || compatNoteFor(pair.compat_score || 0);
+    const compat = (pair.compatibility != null ? pair.compatibility
+                    : pair.compat_score != null ? pair.compat_score
+                    : null);
+    if (el.coupleScore)     el.coupleScore.textContent     = (compat != null ? compat : '--');
+    if (el.coupleScoreNote) el.coupleScoreNote.textContent = pair.vibe_tag || pair.compat_note || compatNoteFor(compat || 0);
 
-    if (el.coupleDynamics)  el.coupleDynamics.textContent  = pair.dynamics || '';
+    if (el.coupleDynamics)  el.coupleDynamics.textContent  = pair.interpretation || pair.dynamics || '';
 
-    // strengths/risks/repair can be string (real data) or array (synthesized fallback)
-    fillCoupleBlock(el.coupleStrengths, pair.strengths);
-    fillCoupleBlock(el.coupleRisks,     pair.risks);
-    fillCoupleBlock(el.coupleRepair,    pair.repair);
+    // CPTI v2: highlight / warning / advice (single string each)
+    // Legacy: strengths / risks / repair (string or array)
+    fillCoupleBlock(el.coupleStrengths, pair.highlight  || pair.strengths);
+    fillCoupleBlock(el.coupleRisks,     pair.warning    || pair.risks);
+    fillCoupleBlock(el.coupleRepair,    pair.advice     || pair.repair);
 
     if (el.btnCoupleShare) {
       el.btnCoupleShare.classList.remove('is-copied');
@@ -982,7 +946,7 @@
     const r  = Math.min(cx, cy) - 56;
     const axisCount = DIM_COUNT;
 
-    const norm = vector.map(v => Math.max(0, Math.min(1, (v + 4) / 8)));
+    const norm = vector.map(v => Math.max(0, Math.min(1, (v + 5) / 15)));
 
     const angleFor = (i) => (-Math.PI / 2) + (i * 2 * Math.PI / axisCount);
 

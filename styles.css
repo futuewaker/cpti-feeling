@@ -1,16 +1,16 @@
 /* ===========================================================
-   CPTI · 关系塑 — styles.css
-   极简像素风 · Minimalist Pixel Aesthetic v2
+   CPTI · 感情模式 — styles.css
+   极简像素风 · 暖橘玫瑰 v3
    =========================================================== */
 
 :root {
-  --primary:     #FB7185;    /* 樱桃粉 pink-400,主色 */
-  --primary-dk:  #E11D48;    /* 深粉 rose-600,hover/pressed/强调 */
-  --primary-lt:  #FECDD3;    /* 浅粉 pink-200,次要高亮 */
-  --accent:      #FBBF24;    /* 亮黄，徽章/标签高亮 */
+  --primary:     #FF7A45;    /* 暖橘,主色 */
+  --primary-dk:  #E83A6F;    /* 玫瑰红,hover/pressed/强调 */
+  --primary-lt:  #FFD4C4;    /* 浅橘,次要高亮 */
+  --accent:      #FBBF24;    /* 蜜糖黄，徽章/标签高亮 */
   --shadow:      #000;       /* 黑描边 + 黑阴影 */
   --bg: #FFFFFF;             /* 纯白底 */
-  --bg-soft: #FFF1F2;        /* 极淡粉底,卡片内衬 */
+  --bg-soft: #FFF6E5;        /* 米白底,卡片内衬 (温暖感) */
   --surface: #F4F4F4;
   --surface-hover: #EBEBEB;
   --surface-strong: #E8E8E8;
