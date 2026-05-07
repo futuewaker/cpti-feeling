@@ -30,29 +30,29 @@
   {
     "id": 3,
     "dim": "AX",
-    "text": "ta 语气稍微冷一点, 你秒感应到。你——",
-    "scenario_emoji": "🌡️",
-    "bubble": "语气感应雷达",
-    "avatar": "images/koala.png",
+    "text": "你和 ta 走在街上, 撞见你的前任迎面走来。你——",
+    "scenario_emoji": "👻",
+    "bubble": "ex 现场偶遇",
+    "avatar": "images/dolphin.png",
     "options": [
-      { "label": "\"我又惹 ta 了?\" 写小作文", "score": 2, "types": ["HUG", "OWL"] },
-      { "label": "想很多, 但藏心里没说", "score": 1, "types": ["LAMB", "OWL"] },
-      { "label": "\"ta 冷就冷, 我刷剧\"", "score": 0, "types": ["SHELL", "BEE"] },
-      { "label": "\"ta 冷我也冷\"", "score": 1, "types": ["PEAC", "WOLF"] }
+      { "label": "抓 ta 手亲过去, 给 ex 看", "score": 2, "types": ["WAVE", "HUG"] },
+      { "label": "装没看见, 拽 ta 拐弯就走", "score": 1, "types": ["SHELL", "BUNN"] },
+      { "label": "礼貌点头, 心里 7 个 emo", "score": 0, "types": ["LAMB", "OWL"] },
+      { "label": "\"嗨, 好久不见\" 直接打招呼", "score": 1, "types": ["PEAC", "PEN"] }
     ]
   },
   {
     "id": 4,
     "dim": "AX",
-    "text": "周日下午, ta 一整天没找你, 你——",
-    "scenario_emoji": "🛋️",
-    "bubble": "周日下午综合症",
-    "avatar": "images/lamb.png",
+    "text": "你帮 ta 拿手机, 屏幕弹出一条 \"想你了\" 来自陌生 ID。你——",
+    "scenario_emoji": "📱",
+    "bubble": "弹窗暴击现场",
+    "avatar": "images/koala.png",
     "options": [
-      { "label": "\"ta 是不是不喜欢我了\"", "score": 2, "types": ["OWL", "HUG"] },
-      { "label": "找个理由先发消息", "score": 1, "types": ["PEN", "HUG"] },
-      { "label": "太好, 自己待着挺好", "score": 0, "types": ["SHELL", "BEE"] },
-      { "label": "ta 不找, 我也不找", "score": -1, "types": ["LAMB", "BUNN"] }
+      { "label": "\"这是谁?\" 当场逼问", "score": 2, "types": ["WAVE", "HUG"] },
+      { "label": "截图存证据, 慢慢分析", "score": 1, "types": ["OWL", "PEN"] },
+      { "label": "假装没看见, 把手机递回去", "score": 0, "types": ["SHELL", "BUNN"] },
+      { "label": "脑里 100 集小剧场, 不开口", "score": 1, "types": ["LAMB", "OWL"] }
     ]
   },
   {
@@ -142,15 +142,15 @@
   {
     "id": 11,
     "dim": "EX",
-    "text": "你被 ta 惹生气了, ta 问你怎么了。你——",
-    "scenario_emoji": "🤐",
-    "bubble": "我没事 测谎仪",
+    "text": "七夕你做好准备等 ta, ta 上班忙忘了。你——",
+    "scenario_emoji": "💔",
+    "bubble": "纪念日塌房",
     "avatar": "images/wolf_cub.png",
     "options": [
-      { "label": "\"我没事\" (脸已写满)", "score": 2, "types": ["WOLF", "LAMB"] },
-      { "label": "\"你自己想想\"", "score": 1, "types": ["WOLF", "PEAC"] },
-      { "label": "\"你刚那句话让我难受了\"", "score": -1, "types": ["PEN", "HUG"] },
-      { "label": "直接哭, 哭到 ta 慌", "score": 0, "types": ["WAVE", "HUG"] }
+      { "label": "发\"我们分手吧\" 试探一下", "score": 2, "types": ["WAVE", "PEAC"] },
+      { "label": "\"没事真的\" (回家偷偷哭)", "score": 1, "types": ["LAMB", "WOLF"] },
+      { "label": "自己去吃顿大餐, 不靠 ta", "score": 0, "types": ["SHELL", "BEE"] },
+      { "label": "\"下次记得就行\" 但记仇", "score": 1, "types": ["WOLF", "OWL"] }
     ]
   },
   {
@@ -184,29 +184,29 @@
   {
     "id": 14,
     "dim": "EX",
-    "text": "ta 给你买了你想要很久的东西。你——",
-    "scenario_emoji": "🎁",
-    "bubble": "惊喜暴击现场",
-    "avatar": "images/peacock.png",
+    "text": "ta 喝醉了抱你, 嘴里叫了别人的名字。你——",
+    "scenario_emoji": "🍷",
+    "bubble": "酒后说错名暴击",
+    "avatar": "images/dolphin.png",
     "options": [
-      { "label": "立刻尖叫, 拍九宫格发圈", "score": 2, "types": ["PEAC", "HUG"] },
-      { "label": "\"干嘛买这个\" (心里早化了)", "score": 1, "types": ["WOLF", "OWL"] },
-      { "label": "\"谢谢, 我超喜欢\" 郑重收好", "score": 0, "types": ["PEN", "SHELL"] },
-      { "label": "\"你怎么花这个钱\" 开始内耗", "score": -1, "types": ["LAMB", "BUNN"] }
+      { "label": "当场推开, 拎包就走", "score": 2, "types": ["WAVE", "PEAC"] },
+      { "label": "\"你叫的是谁?\" 冷静追问", "score": 1, "types": ["OWL", "WOLF"] },
+      { "label": "当没听见, 心里 7 道伤口", "score": 0, "types": ["LAMB", "SHELL"] },
+      { "label": "\"你喝多了\" 但记一辈子", "score": 1, "types": ["WOLF", "OWL"] }
     ]
   },
   {
     "id": 15,
     "dim": "EX",
-    "text": "ta 朋友圈发了张你不在的合照, 你——",
-    "scenario_emoji": "📷",
-    "bubble": "朋友圈情绪测验",
-    "avatar": "images/dolphin.png",
+    "text": "你最好的闺蜜被你前任追求, 来问你介意吗。你——",
+    "scenario_emoji": "🌶️",
+    "bubble": "前任追闺蜜",
+    "avatar": "images/peacock.png",
     "options": [
-      { "label": "评论先点赞, 凌晨写小作文", "score": 2, "types": ["WAVE", "OWL"] },
-      { "label": "\"今天玩这么开心都没叫我\"", "score": 1, "types": ["HUG", "WAVE"] },
-      { "label": "ta 玩 ta 的, 我玩我的", "score": -1, "types": ["BEE", "SHELL"] },
-      { "label": "假装没看到 (其实放大 17 次)", "score": 0, "types": ["WOLF", "OWL"] }
+      { "label": "\"我介意!!!\" 直接炸了", "score": 2, "types": ["WAVE", "HUG"] },
+      { "label": "\"随便你啊\" (内耗 3 个月)", "score": 1, "types": ["LAMB", "OWL"] },
+      { "label": "笑着说不介意, 之后疏远闺蜜", "score": 0, "types": ["SHELL", "WOLF"] },
+      { "label": "鼓励她上, 我已经新欢了", "score": -1, "types": ["BEE", "PEAC"] }
     ]
   },
   {
@@ -254,15 +254,15 @@
   {
     "id": 19,
     "dim": "CO",
-    "text": "在一起 8 个月, 你脑里\"未来\"的密度——",
-    "scenario_emoji": "🏡",
-    "bubble": "未来规划脑扫描",
+    "text": "第一次见 ta 父母, ta 妈饭桌直说你 \"不太合适\"。你——",
+    "scenario_emoji": "🍽️",
+    "bubble": "见家长翻车现场",
     "avatar": "images/penguin.png",
     "options": [
-      { "label": "婚礼穿什么、孩子名字, 全想好了", "score": 2, "types": ["PEN", "HUG"] },
-      { "label": "会聊, 但怕想多 ta 跑", "score": 1, "types": ["LAMB", "OWL"] },
-      { "label": "过好今天, 不规划那么远", "score": 0, "types": ["BEE", "SHELL"] },
-      { "label": "嘴上不聊, 偷偷搜婚纱", "score": -1, "types": ["WOLF", "OWL"] }
+      { "label": "起身走人, 不忍了", "score": 2, "types": ["PEAC", "BEE"] },
+      { "label": "笑着继续吃, 回家跟 ta 摊牌", "score": 1, "types": ["WOLF", "OWL"] },
+      { "label": "强忍委屈, 笑着递水果", "score": 0, "types": ["LAMB", "BUNN"] },
+      { "label": "\"我喜欢的是 ta, 不是 ta 妈\"", "score": -1, "types": ["PEN", "HUG"] }
     ]
   },
   {

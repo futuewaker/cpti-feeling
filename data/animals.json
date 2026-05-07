@@ -38,7 +38,7 @@
   {
     "id": "bee",
     "name_title": "BEE",
-    "name_cn": "不锁恋采蜜人",
+    "name_cn": "采蜜人",
     "image": "images/bee.png",
     "primary_type": "BEE",
     "secondary_type": "BEE",
@@ -56,7 +56,7 @@
   {
     "id": "wolf_cub",
     "name_title": "WOLF",
-    "name_cn": "嘴硬糖心型",
+    "name_cn": "嘴硬糖心",
     "image": "images/wolf_cub.png",
     "primary_type": "WOLF",
     "secondary_type": "WOLF",
@@ -74,7 +74,7 @@
   {
     "id": "rabbit",
     "name_title": "BUNN",
-    "name_cn": "应激跑路型",
+    "name_cn": "跑路兔",
     "image": "images/rabbit.png",
     "primary_type": "BUNN",
     "secondary_type": "BUNN",

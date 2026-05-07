@@ -138,7 +138,7 @@
   {
     "id": "BEE",
     "animal_slug": "bee",
-    "name_cn": "不锁恋采蜜人",
+    "name_cn": "采蜜人",
     "emoji": "🐝",
     "image": "images/bee.png",
     "tagline": "都很喜欢 但都不要锁",
@@ -206,7 +206,7 @@
   {
     "id": "WOLF",
     "animal_slug": "wolf_cub",
-    "name_cn": "嘴硬糖心型",
+    "name_cn": "嘴硬糖心",
     "emoji": "🐺",
     "image": "images/wolf_cub.png",
     "tagline": "\"我没生气\" (本人一秒后就化了)",
@@ -274,7 +274,7 @@
   {
     "id": "BUNN",
     "animal_slug": "rabbit",
-    "name_cn": "应激跑路型",
+    "name_cn": "跑路兔",
     "emoji": "🐰",
     "image": "images/rabbit.png",
     "tagline": "你声音大一点 我就消失了",
