@@ -2,7 +2,7 @@
   {
     "id": "hermit_crab",
     "name_title": "SHELL",
-    "name_cn": "缩壳人",
+    "name_cn": "爱情门神",
     "image": "images/hermit_crab.png",
     "primary_type": "SHELL",
     "secondary_type": "SHELL",
@@ -11,7 +11,7 @@
   {
     "id": "owl",
     "name_title": "OWL",
-    "name_cn": "凌晨内耗师",
+    "name_cn": "小作文之神",
     "image": "images/owl.png",
     "primary_type": "OWL",
     "secondary_type": "OWL",
@@ -20,7 +20,7 @@
   {
     "id": "peacock",
     "name_title": "PEAC",
-    "name_cn": "慕强王",
+    "name_cn": "配得感拉满侠",
     "image": "images/peacock.png",
     "primary_type": "PEAC",
     "secondary_type": "PEAC",
@@ -29,7 +29,7 @@
   {
     "id": "koala",
     "name_title": "HUG",
-    "name_cn": "挂件型",
+    "name_cn": "粘人圣体",
     "image": "images/koala.png",
     "primary_type": "HUG",
     "secondary_type": "HUG",
@@ -38,7 +38,7 @@
   {
     "id": "bee",
     "name_title": "BEE",
-    "name_cn": "采蜜人",
+    "name_cn": "轻量海王",
     "image": "images/bee.png",
     "primary_type": "BEE",
     "secondary_type": "BEE",
@@ -47,7 +47,7 @@
   {
     "id": "dolphin",
     "name_title": "WAVE",
-    "name_cn": "情绪海王",
+    "name_cn": "已读乱杀王",
     "image": "images/dolphin.png",
     "primary_type": "WAVE",
     "secondary_type": "WAVE",
@@ -56,7 +56,7 @@
   {
     "id": "wolf_cub",
     "name_title": "WOLF",
-    "name_cn": "嘴硬糖心",
+    "name_cn": "凶巴巴小奶狗",
     "image": "images/wolf_cub.png",
     "primary_type": "WOLF",
     "secondary_type": "WOLF",
@@ -65,7 +65,7 @@
   {
     "id": "penguin",
     "name_title": "PEN",
-    "name_cn": "认定脑",
+    "name_cn": "直奔民政局",
     "image": "images/penguin.png",
     "primary_type": "PEN",
     "secondary_type": "PEN",
@@ -74,7 +74,7 @@
   {
     "id": "rabbit",
     "name_title": "BUNN",
-    "name_cn": "跑路兔",
+    "name_cn": "闪电分手户",
     "image": "images/rabbit.png",
     "primary_type": "BUNN",
     "secondary_type": "BUNN",
@@ -83,7 +83,7 @@
   {
     "id": "lamb",
     "name_title": "LAMB",
-    "name_cn": "讨好奶",
+    "name_cn": "fawn 体质",
     "image": "images/lamb.png",
     "primary_type": "LAMB",
     "secondary_type": "LAMB",
