@@ -101,7 +101,8 @@
       quiz:            $('view-quiz'),
       match:           $('view-match'),
       result:          $('view-result'),
-      'couple-result': $('view-couple-result')
+      'couple-result': $('view-couple-result'),
+      knowledge:       $('view-knowledge')
     },
     // intro
     scrollRows: [$('scroll-row-1'), $('scroll-row-2'), $('scroll-row-3')],
@@ -297,6 +298,19 @@
     el.btnCoupleToSolo && el.btnCoupleToSolo.addEventListener('click', function (e) {
       e.preventDefault();
       startSolo();
+    });
+
+    // 心理学锚点科普 — 进入 / 返回
+    const btnKn = document.getElementById('btn-knowledge');
+    const btnKnBack = document.getElementById('btn-knowledge-back');
+    if (btnKn) btnKn.addEventListener('click', function () {
+      state._returnToView = state.view || 'couple-result';
+      setView('knowledge');
+      window.scrollTo(0, 0);
+    });
+    if (btnKnBack) btnKnBack.addEventListener('click', function () {
+      setView(state._returnToView || 'couple-result');
+      window.scrollTo(0, 0);
     });
   }
 
