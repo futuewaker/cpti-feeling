@@ -875,9 +875,10 @@
     if (el.couplePreamble) {
       el.couplePreamble.textContent = typeNameFor(showLeftType) + ' × ' + typeNameFor(showRightType);
     }
-    if (el.coupleTitle)    el.coupleTitle.textContent    = pair.title    || '未定义配对';
+    // V4: new_title 优先于旧 title (专业 + 爆款诊断书风)
+    if (el.coupleTitle)    el.coupleTitle.textContent    = pair.new_title || pair.title || '未定义配对';
     if (el.coupleSubtitle) {
-      const baseSub = pair.summary || pair.subtitle || pair.vibe_tag || '';
+      const baseSub = pair.new_subtitle || pair.summary || pair.subtitle || pair.vibe_tag || '';
       el.coupleSubtitle.textContent = pair._via_secondary
         ? (baseSub + ' (基于副人格匹配)').trim()
         : baseSub;
@@ -891,8 +892,16 @@
 
     if (el.coupleDynamics)  el.coupleDynamics.textContent  = pair.interpretation || pair.dynamics || '';
 
+    // V4 新 Section · 高频对话 (3 条 you/ta)
+    renderDialogueLines(pair.dialogue_lines);
+
+    // V4 新 Section · 5 年后预测
+    renderFiveYearsLater(pair.five_years_later);
+
+    // V4 新 Section · BGM (我手动规则映射)
+    renderCoupleBGM(cr.leftType, cr.rightType, compat);
+
     // CPTI v2: highlight / warning / advice (single string each)
-    // Legacy: strengths / risks / repair (string or array)
     fillCoupleBlock(el.coupleStrengths, pair.highlight  || pair.strengths);
     fillCoupleBlock(el.coupleRisks,     pair.warning    || pair.risks);
     fillCoupleBlock(el.coupleRepair,    pair.advice     || pair.repair);
@@ -901,6 +910,97 @@
       el.btnCoupleShare.classList.remove('is-copied');
       el.btnCoupleShare.textContent = '复制配对链接';
     }
+  }
+
+  function renderDialogueLines(lines) {
+    const block = document.getElementById('couple-dialogue-block');
+    const list  = document.getElementById('couple-dialogue-list');
+    if (!block || !list) return;
+    if (!Array.isArray(lines) || !lines.length) {
+      block.style.display = 'none';
+      return;
+    }
+    list.innerHTML = '';
+    lines.slice(0, 3).forEach(function (line) {
+      const wrap = document.createElement('div');
+      wrap.className = 'dialogue-row';
+      wrap.innerHTML = ''
+        + '<div class="dialogue-bubble dialogue-you"><span class="dialogue-tag">你</span><span class="dialogue-text"></span></div>'
+        + '<div class="dialogue-bubble dialogue-ta"><span class="dialogue-tag">ta</span><span class="dialogue-text"></span></div>';
+      wrap.querySelectorAll('.dialogue-text')[0].textContent = line.you || '';
+      wrap.querySelectorAll('.dialogue-text')[1].textContent = line.ta  || '';
+      list.appendChild(wrap);
+    });
+    block.style.display = '';
+  }
+
+  function renderFiveYearsLater(text) {
+    const block = document.getElementById('couple-future-block');
+    const body  = document.getElementById('couple-future');
+    if (!block || !body) return;
+    if (!text) { block.style.display = 'none'; return; }
+    body.innerHTML = mdBoldToHTML(text);
+    block.style.display = '';
+  }
+
+  // BGM 规则映射 (主类型组合 → 一首歌). 不烧 agent token.
+  // 选歌原则: 当代华语 (周杰伦/陈奕迅/田馥甄/王菲/孙燕姿/...) 与 type 内核呼应
+  function bgmFor(typeA, typeB, compat) {
+    const key = [typeA, typeB].sort().join('_'); // 排序后查表, 双向同结果
+    const TABLE = {
+      'HUG_PEN':    { song: '《告白气球》', artist: '周杰伦',   reason: '"亲爱的爱上你 戀愛日記" — 教科书神配甜度' },
+      'HUG_HUG':    { song: '《非诚勿扰》', artist: '陈奕迅',   reason: '"贴住贴住贴住" — 双挂件物理拼接' },
+      'PEN_PEN':    { song: '《我愿意》',   artist: '王菲',     reason: '"一辈子也愿意" — 双锁定终身协议' },
+      'WAVE_WAVE':  { song: '《七里香》',   artist: '周杰伦',   reason: '"窗外的麻雀在电线杆上多嘴" — 双海啸 emo' },
+      'OWL_OWL':    { song: '《晚安晚安》', artist: '陈奕迅',   reason: '"今晚先这样" — 双内耗师互相熬到天亮' },
+      'WOLF_WOLF':  { song: '《让我留在你身边》', artist: '陈奕迅', reason: '嘴硬到不会说出口, 但歌词替你说了' },
+      'BEE_BEE':    { song: '《浪费》',     artist: '陈奕迅',   reason: '"我已等了你好多年" — 但 ta 也等了别人' },
+      'SHELL_SHELL':{ song: '《一个人的精彩》', artist: '萧亚轩', reason: '双壳合住, 各自精彩, 偶尔同步' },
+      'BUNN_BUNN':  { song: '《飞鸟和蝉》', artist: '任然',     reason: '一惊就跑, 飞鸟从不告别' },
+      'LAMB_LAMB':  { song: '《说散就散》', artist: 'JC 陈泳彤', reason: '"明明知道你也喜欢我" — 但都不敢说' },
+      'HUG_WOLF':   { song: '《矛盾》',     artist: '林俊杰',   reason: '你抱过去 ta 嘴硬一秒就化' },
+      'SHELL_WOLF': { song: '《沉默是金》', artist: '张国荣',   reason: '俩人都不开口, 但都在做事' },
+      'PEN_BEE':    { song: '《珊瑚海》',   artist: '周杰伦',   reason: '"转身离开 分手说不出来" — 致命错位' },
+      'BUNN_HUG':   { song: '《说好不哭》', artist: '周杰伦',   reason: 'ta 想抓住你, 你已经在跑了' },
+      'PEAC_PEAC':  { song: '《敏感肌》',   artist: '陈绮贞',   reason: '"我不允许我配不上" — 双慕强双高戏剧' },
+      'WAVE_PEN':   { song: '《因为爱情》', artist: '王菲/陈奕迅', reason: '你的潮汐 + ta 的港湾 = 完美互补' },
+      'OWL_HUG':    { song: '《想你的夜》', artist: '关喆',     reason: '凌晨想 ta 的不眠夜 + 想要被抱住' },
+      'LAMB_WOLF':  { song: '《浪费》',     artist: '林宥嘉',   reason: '你说"都行", ta 凶你两句, 你都觉得是爱' },
+      'PEN_LAMB':   { song: '《简单爱》',   artist: '周杰伦',   reason: 'ta 想锁定, 你说"都行你定" — 锁住但不敢说话' },
+      'WAVE_SHELL': { song: '《浮夸》',     artist: '陈奕迅',   reason: '你浮夸 emo, ta 在壳里没听见' }
+    };
+    const data = TABLE[key];
+    if (data) return data;
+    // Fallback (未列出的组合): 按 compat 分档
+    if (compat >= 80) return { song: '《最长的电影》', artist: '周杰伦', reason: '高兼容神配, 一首歌就能哭' };
+    if (compat >= 60) return { song: '《十年》',       artist: '陈奕迅', reason: '能磨合, 慢慢长出来的爱' };
+    if (compat >= 45) return { song: '《分手快乐》',   artist: '梁静茹', reason: '持平就是赢, 但偶尔会想离开' };
+    if (compat >= 30) return { song: '《不该》',       artist: '周杰伦', reason: '互相消耗, 都知道但停不下' };
+    return { song: '《泪光闪闪》', artist: '夏川里美', reason: '走开就别回头' };
+  }
+
+  function renderCoupleBGM(typeA, typeB, compat) {
+    const block = document.getElementById('couple-bgm-block');
+    const songEl   = document.getElementById('couple-bgm-song');
+    const artistEl = document.getElementById('couple-bgm-artist');
+    const reasonEl = document.getElementById('couple-bgm-reason');
+    if (!block || !songEl) return;
+    const data = bgmFor(typeA, typeB, compat);
+    if (!data) { block.style.display = 'none'; return; }
+    songEl.textContent   = data.song;
+    artistEl.textContent = ' · ' + data.artist;
+    reasonEl.textContent = data.reason;
+    block.style.display = '';
+  }
+
+  // 转 **bold** 为 <strong>, 同时 escape 其他 HTML
+  function mdBoldToHTML(s) {
+    if (!s) return '';
+    const escaped = String(s)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;');
+    return escaped.replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>');
   }
 
   function fillCoupleBlock(host, data) {

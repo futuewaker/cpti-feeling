@@ -2054,6 +2054,111 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
   letter-spacing: 0.005em;
   font-weight: 500;
 }
+
+/* ==========================================================
+   V4 新 sections: 高频对话 / 5 年后 / BGM
+   ========================================================== */
+
+/* 高频对话: 你/ta 双气泡列表, 每条单独可截图 */
+.dialogue-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 4px;
+}
+.dialogue-row {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding-bottom: 12px;
+  border-bottom: 1.5px dashed var(--border);
+}
+.dialogue-row:last-child { border-bottom: 0; padding-bottom: 0; }
+
+.dialogue-bubble {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 14px;
+  line-height: 1.55;
+}
+.dialogue-tag {
+  flex-shrink: 0;
+  display: inline-block;
+  font-size: 11px;
+  font-weight: 700;
+  padding: 2px 8px;
+  border-radius: 999px;
+  letter-spacing: 0.05em;
+  border: 1.5px solid var(--text);
+  margin-top: 2px;
+}
+.dialogue-you .dialogue-tag {
+  background: var(--primary-lt);
+  color: var(--text);
+}
+.dialogue-ta .dialogue-tag {
+  background: var(--text);
+  color: #fff;
+}
+.dialogue-text {
+  flex: 1;
+  color: var(--text);
+  font-weight: 500;
+}
+.dialogue-you .dialogue-text { font-weight: 600; }
+.dialogue-hint {
+  margin: 12px 0 0;
+  font-size: 12px;
+  color: var(--text-secondary);
+  text-align: right;
+  font-style: italic;
+}
+
+/* 5 年后预测: 戏剧化, 加粗金句高亮 */
+.couple-future-body {
+  font-size: 14px;
+  line-height: 1.85;
+  color: var(--text);
+}
+.couple-future-body strong, .couple-future-body b {
+  display: inline;
+  font-weight: 700;
+  background: linear-gradient(180deg, transparent 60%, rgba(255,122,69,0.25) 60%);
+  padding: 0 2px;
+}
+
+/* BGM 卡片 */
+.bgm-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 4px 0;
+}
+.bgm-meta {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+}
+.bgm-song {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  letter-spacing: 0.005em;
+}
+.bgm-artist {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+.bgm-reason {
+  margin: 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 500;
+  font-style: italic;
+}
 .couple-list {
   margin: 0;
   padding: 0;
