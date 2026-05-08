@@ -2328,52 +2328,33 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
    V6.1 · 一句话锐评 (米白引号体) + 行为动力学流程图
    ========================================================== */
 
-/* 锐评卡片 — 米白底 + 大暖橘引号 + 玫瑰红左竖线 (热评 vibe) */
+/* 锐评卡片 — 跟单人版 .result-quick-review 同款 (主色填充 + 黑字大字) */
 .couple-roast-card {
-  position: relative;
-  background: linear-gradient(180deg, #FFF6E5 0%, #FFE7C9 100%);
-  border: 2.5px solid var(--text);
-  border-radius: 18px;
-  box-shadow: 5px 5px 0 var(--primary-dk);
-  padding: 28px 22px 18px 30px;
-  margin: 0 16px 18px;
+  background: var(--primary);
+  border: 2px solid var(--text);
+  box-shadow: 4px 4px 0 var(--text);
+  border-radius: 14px;
+  padding: 20px 22px 18px;
+  margin: 0 16px 22px;
 }
-.couple-roast-card::before {
-  content: '';
-  position: absolute;
-  top: 16px; bottom: 16px; left: 12px;
-  width: 4px;
-  background: var(--primary-dk);
-  border-radius: 2px;
-}
-.roast-quote-mark {
-  display: block;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  font-size: 56px;
-  font-weight: 900;
-  color: var(--primary);
-  line-height: 0.5;
-  margin: 0 0 -2px -4px;
-  letter-spacing: -0.05em;
-  -webkit-font-smoothing: none;
-}
+.roast-quote-mark { display: none; }
 .couple-roast {
   margin: 0;
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.65;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1.7;
   letter-spacing: 0.005em;
   color: var(--text);
 }
 .roast-byline {
   display: block;
-  margin: 12px 0 0;
+  margin: 10px 0 0;
   font-size: 11.5px;
   font-weight: 600;
-  color: var(--text-secondary);
+  color: var(--text);
   letter-spacing: 0.06em;
   text-align: right;
-  font-style: italic;
+  opacity: 0.7;
 }
 
 /* 分享按钮独立 row (在"这对的真相"后) */
