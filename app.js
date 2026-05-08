@@ -101,8 +101,7 @@
       quiz:            $('view-quiz'),
       match:           $('view-match'),
       result:          $('view-result'),
-      'couple-result': $('view-couple-result'),
-      knowledge:       $('view-knowledge')
+      'couple-result': $('view-couple-result')
     },
     // intro
     scrollRows: [$('scroll-row-1'), $('scroll-row-2'), $('scroll-row-3')],
@@ -298,19 +297,6 @@
     el.btnCoupleToSolo && el.btnCoupleToSolo.addEventListener('click', function (e) {
       e.preventDefault();
       startSolo();
-    });
-
-    // 心理学锚点科普 view 进入 / 返回
-    const btnKn = document.getElementById('btn-knowledge');
-    const btnKnBack = document.getElementById('btn-knowledge-back');
-    if (btnKn) btnKn.addEventListener('click', function () {
-      state._returnToView = state.view; // 记住从哪来 (couple / solo)
-      setView('knowledge');
-      window.scrollTo(0, 0);
-    });
-    if (btnKnBack) btnKnBack.addEventListener('click', function () {
-      setView(state._returnToView || 'couple-result');
-      window.scrollTo(0, 0);
     });
   }
 
@@ -858,35 +844,13 @@
     return a ? a.image : '';
   }
 
-  // 转 **bold** 为 <strong>, 同时 escape 其他 HTML (安全简易 markdown)
-  function mdBoldToHTML(s) {
-    if (!s) return '';
-    const escaped = String(s)
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;');
-    return escaped.replace(/\*\*([^*]+?)\*\*/g, '<strong>$1</strong>');
-  }
-
-  // CPTI v2: 极端分数映射 — 不端水, 让她有发圈的冲动
-  // 数字 → 显示符号 (∞ / +999 / +100 / 0 / -999 / -∞)
-  function displayCompatScore(compat) {
-    if (compat == null) return '--';
-    if (compat >= 88) return '∞';
-    if (compat >= 75) return '+999';
-    if (compat >= 60) return '+100';
-    if (compat >= 45) return '0';
-    if (compat >= 30) return '-999';
-    return '-∞';
-  }
-
+  // Tiny bucket copy for the compat_score display
   function compatNoteFor(score) {
-    if (score >= 88) return '数学题做不了 · 神配对';
-    if (score >= 75) return '近乎神配 · 高兼容';
-    if (score >= 60) return '能磨合 · 稳';
-    if (score >= 45) return '持平就是赢 · 各自一半';
-    if (score >= 30) return '互相消耗 · 警示';
-    return '赶紧走 · 暴力分手预警';
+    if (score >= 85) return '同频率 · 看见彼此时像照镜子';
+    if (score >= 75) return '互补吸引 · 需要点翻译就能同频';
+    if (score >= 65) return '有张力 · 稳住节奏就能长';
+    if (score >= 50) return '磨合型 · 关键在「翻译」对方的语言';
+    return '挑战型 · 爱得到但需要工具';
   }
 
   // ------------------------------------------------------------
@@ -922,28 +886,13 @@
     const compat = (pair.compatibility != null ? pair.compatibility
                     : pair.compat_score != null ? pair.compat_score
                     : null);
-    // 极端分数显示 (∞ / +999 / 0 / -∞), 内部 compat 数字保持用于 note 映射
-    if (el.coupleScore)     el.coupleScore.textContent     = displayCompatScore(compat);
-    if (el.coupleScoreNote) el.coupleScoreNote.textContent = compatNoteFor(compat || 0);
+    if (el.coupleScore)     el.coupleScore.textContent     = (compat != null ? compat : '--');
+    if (el.coupleScoreNote) el.coupleScoreNote.textContent = pair.vibe_tag || pair.compat_note || compatNoteFor(compat || 0);
 
-    // CPTI v3: 顶部加 couple_persona 网梗剧情人设
-    const personaEl = document.getElementById('couple-persona');
-    if (personaEl) personaEl.textContent = pair.couple_persona || '';
+    if (el.coupleDynamics)  el.coupleDynamics.textContent  = pair.interpretation || pair.dynamics || '';
 
-    // 你俩的真相 / 翻译器 — V3 优先, fallback 到 v2 interpretation
-    // 把 **加粗** 转成 <strong>, 安全 HTML
-    if (el.coupleDynamics) {
-      const txt = pair.conflict_translator || pair.interpretation || pair.dynamics || '';
-      el.coupleDynamics.innerHTML = mdBoldToHTML(txt);
-    }
-
-    // 「你俩比别人牛逼的地方」(special)
-    const specialEl = document.getElementById('couple-special');
-    if (specialEl) {
-      const txt = pair.they_are_special_at || pair.highlight || '';
-      specialEl.innerHTML = mdBoldToHTML(txt);
-    }
-
+    // CPTI v2: highlight / warning / advice (single string each)
+    // Legacy: strengths / risks / repair (string or array)
     fillCoupleBlock(el.coupleStrengths, pair.highlight  || pair.strengths);
     fillCoupleBlock(el.coupleRisks,     pair.warning    || pair.risks);
     fillCoupleBlock(el.coupleRepair,    pair.advice     || pair.repair);

@@ -271,9 +271,6 @@
         <p class="couple-subtitle" id="couple-subtitle"></p>
       </div>
 
-      <!-- 网梗剧情人设 (couple_persona) -->
-      <div class="couple-persona" id="couple-persona"></div>
-
       <div class="couple-score-card">
         <span class="couple-score-label">兼容度</span>
         <span class="couple-score-value" id="couple-score">--</span>
@@ -281,46 +278,30 @@
         <a class="btn-share-mini" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">分享 →</a>
       </div>
 
-      <!-- Section A · 你俩比别人牛逼的地方 -->
-      <div class="couple-block">
-        <span class="couple-block-label">🏆 你俩的稀有点</span>
-        <div class="couple-block-body" id="couple-special"></div>
-      </div>
-
-      <!-- Section B · 翻译器 (核心) — ta 这么做不是 X 是 Y · 你这么做 ta 听到的不是 A 是 B -->
       <div class="couple-block is-accent">
-        <span class="couple-block-label">🔁 你俩的翻译器</span>
-        <div class="couple-block-body couple-translator" id="couple-dynamics"></div>
+        <span class="couple-block-label">这对的真相</span>
+        <div class="couple-block-body" id="couple-dynamics"></div>
       </div>
 
-      <p class="couple-share-line">把这页发给 ta · 让 ta 看完回你一个字</p>
-
-      <!-- 旧 sections (保留 fallback, 在新数据全部就位后会被翻译器覆盖) -->
-      <div class="couple-block couple-block-legacy">
+      <div class="couple-block">
         <span class="couple-block-label">最大亮点</span>
         <ul class="couple-list" id="couple-strengths"></ul>
       </div>
 
-      <div class="couple-block couple-block-legacy">
+      <div class="couple-block">
         <span class="couple-block-label">最大雷区</span>
         <ul class="couple-list" id="couple-risks"></ul>
       </div>
 
-      <div class="couple-block couple-block-legacy">
+      <div class="couple-block">
         <span class="couple-block-label">给你们的建议</span>
         <ul class="couple-list" id="couple-repair"></ul>
       </div>
 
-      <!-- 心理学锚点查阅按钮 -->
-      <button class="btn-knowledge" id="btn-knowledge" type="button">
-        🧠 看不懂依恋型 / Sternberg / Gottman? 点这里查阅
-        <span class="btn-arrow" aria-hidden="true">→</span>
-      </button>
-
       <div class="couple-actions">
         <button class="btn btn-primary" id="btn-couple-save" type="button">
-          <span class="btn-icon" aria-hidden="true">📨</span>
-          截给 ta 看 (长截图)
+          <span class="btn-icon" aria-hidden="true">📸</span>
+          一键长截图保存
         </button>
         <button class="btn btn-secondary" id="btn-couple-share" type="button">复制配对链接</button>
         <button class="btn btn-ghost" id="btn-couple-restart" type="button">再配一次</button>
@@ -331,97 +312,7 @@
         <span class="btn-arrow" aria-hidden="true">→</span>
       </a>
 
-      <p class="result-footer-note">如果你俩一起读到这, 已经赢一半了 ❤️</p>
-    </section>
-
-    <!-- ===================== KNOWLEDGE (心理学科普) ===================== -->
-    <section class="view view-knowledge" id="view-knowledge" aria-label="心理学锚点科普">
-      <header class="quiz-header">
-        <button class="icon-btn" id="btn-knowledge-back" type="button" aria-label="返回">
-          <svg viewBox="0 0 24 24"><use href="#icon-arrow-left"/></svg>
-        </button>
-        <h2 class="match-title">心理学<span class="match-title-pixel">锚点</span></h2>
-      </header>
-
-      <p class="match-sub">CPTI 解读用到的 7 个模型, 一页讲清</p>
-
-      <div class="knowledge-list">
-        <article class="kn-item">
-          <h3>1 · 依恋类型 (Attachment Theory)</h3>
-          <p class="kn-meta">Bartholomew · 1991 · 基于 Bowlby/Ainsworth</p>
-          <p>一个人在亲密关系里的"默认设置"。看两个轴 — <b>焦虑</b> (怕失去) 和 <b>回避</b> (怕被吞没), 拆出 4 型:</p>
-          <ul>
-            <li><b>安全型</b> (Secure) — 低焦虑 + 低回避. 能信任能独立, 占人群 50-60%</li>
-            <li><b>焦虑型</b> (Anxious) — 高焦虑 + 低回避. 怕失去, 高敏雷达</li>
-            <li><b>回避型</b> (Avoidant) — 低焦虑 + 高回避. 独立, 不擅情感表达</li>
-            <li><b>焦虑-回避混合</b> (Fearful) — 双高. 想要又怕受伤</li>
-          </ul>
-        </article>
-
-        <article class="kn-item">
-          <h3>2 · 爱情三角理论 (Triangular Theory)</h3>
-          <p class="kn-meta">Sternberg · 1986</p>
-          <p>把"爱"拆成 3 个独立成分, 不同组合 = 不同关系类型:</p>
-          <ul>
-            <li><b>激情</b> (Passion) — 心动 / 性吸引 / 上头</li>
-            <li><b>亲密</b> (Intimacy) — 情感连接 / 信任 / 自我披露</li>
-            <li><b>承诺</b> (Commitment) — 选择 ta + 长期投入的决定</li>
-          </ul>
-          <p>3 个 high = "完美爱"; 缺哪个就是哪种残缺型 (e.g. 仅有激情 = 上头爱, 仅有承诺 = 凑合婚姻).</p>
-        </article>
-
-        <article class="kn-item">
-          <h3>3 · 四骑士 + 修复尝试 (Four Horsemen)</h3>
-          <p class="kn-meta">Gottman · 研究 3000+ couples 后总结</p>
-          <p>会预测离婚的 4 种行为模式:</p>
-          <ul>
-            <li><b>批评</b> (Criticism) — 攻击人格而非行为</li>
-            <li><b>蔑视</b> (Contempt) — 翻白眼/嘲讽 (杀手级)</li>
-            <li><b>防御</b> (Defensiveness) — 永远反弹</li>
-            <li><b>冷战</b> (Stonewalling) — 沉默撤退 (典型回避型)</li>
-          </ul>
-          <p><b>修复尝试</b> (Repair Attempt): 吵架升级时按暂停的小动作 — 一个梗、一个表情、一句"等下我不是这个意思" — 是稳定关系的关键技能.</p>
-        </article>
-
-        <article class="kn-item">
-          <h3>4 · 五种爱语 (Love Languages)</h3>
-          <p class="kn-meta">Chapman · 1992</p>
-          <p>一个人最容易感受爱的"语言":</p>
-          <ul>
-            <li><b>肯定的言辞</b> (Words of Affirmation) — "你好厉害" 类</li>
-            <li><b>高质量陪伴</b> (Quality Time) — 一起待着, 没手机</li>
-            <li><b>礼物</b> (Receiving Gifts) — 心意载体</li>
-            <li><b>服务的行动</b> (Acts of Service) — 帮你做事</li>
-            <li><b>身体接触</b> (Physical Touch) — 拥抱 / 牵手</li>
-          </ul>
-          <p>伴侣 mismatch (你说语言派, ta 行动派) 是关系裂痕最常见来源.</p>
-        </article>
-
-        <article class="kn-item">
-          <h3>5 · 高敏感人格 (HSP)</h3>
-          <p class="kn-meta">Elaine Aron · 1996</p>
-          <p>不是病, 是 15-20% 人天生神经处理深度高 — 对外界刺激更敏感, 容易被淹没, 但也更共情. 在感情里表现为: 一根眉毛动都能写小作文, 但也能秒读懂对方情绪.</p>
-        </article>
-
-        <article class="kn-item">
-          <h3>6 · 多迷走神经理论 (Polyvagal)</h3>
-          <p class="kn-meta">Stephen Porges</p>
-          <p>应激反应不止 fight (打) / flight (逃) 两种, 还有:</p>
-          <ul>
-            <li><b>Freeze</b> (冻住) — 身体不动, 大脑死机</li>
-            <li><b>Fawn</b> (讨好) — 主动顺从攻击者来求生</li>
-          </ul>
-          <p>很多"讨好型"模式不是性格, 是创伤性的 fawn response.</p>
-        </article>
-
-        <article class="kn-item">
-          <h3>7 · 投入模型 (Investment Model)</h3>
-          <p class="kn-meta">Caryl Rusbult</p>
-          <p>承诺度 = 满意度 + 已投入 + 替代选项的吸引力(反向). 解释了为什么"沉没成本"会让人留下来, 也为什么"现在不满意但还没走"是常态.</p>
-        </article>
-      </div>
-
-      <p class="result-footer-note">读完想测一下自己 → 回首页戳「单人测试」</p>
+      <p class="result-footer-note">关系是两个人的事。</p>
     </section>
 
   </main>
