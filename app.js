@@ -676,11 +676,8 @@
 
   function onPickAnimal(animalId) {
     const side = state._activeSide || 'left';
-    // Prevent picking same animal for both sides (allow override)
     const otherSide = side === 'left' ? 'right' : 'left';
-    if (state.matchPick[otherSide] === animalId) {
-      state.matchPick[otherSide] = null;
-    }
+    // V6.1: 允许双方选同一只动物 (e.g. HUG×HUG / WAVE×WAVE 这类同型组合)
     state.matchPick[side] = animalId;
 
     renderMatchSlots();
@@ -908,8 +905,8 @@
       roastEl.textContent = pair.roast_review || pair.new_subtitle || pair.summary || pair.vibe_tag || '';
     }
 
-    // V6 行为动力学 · 依恋象限图
-    renderBehaviorMap(cr.leftType, cr.rightType, compat);
+    // V6.1 行为动力学 · 因果流程链 (a→b→c→d)
+    renderDynamicsFlow(pair.dynamics_flow, compat);
 
     if (el.coupleDynamics)  el.coupleDynamics.textContent  = pair.interpretation || pair.dynamics || '';
 
@@ -1000,100 +997,47 @@
     return { song: '《泪光闪闪》', artist: '夏川里美', reason: '走开就别回头' };
   }
 
-  // V6 · 10 type 在依恋四象限的 SVG 坐标
-  // X 轴: 焦虑 (0 低 → 100 高), Y 轴: 回避 (0 高 → 100 低, 因 SVG y 从顶部)
-  // 4 象限: 左上=回避型 / 右上=混乱型 / 左下=安全型 / 右下=焦虑型
-  const TYPE_COORDS = {
-    PEN:   [15, 82],   // 安全型: 低焦低避
-    HUG:   [82, 78],   // 焦虑型: 高焦低避
-    OWL:   [78, 65],   // 焦虑+稍内化
-    LAMB:  [70, 70],   // 焦虑+顺从
-    SHELL: [15, 15],   // 回避型: 低焦高避
-    BEE:   [28, 22],   // 回避+主动多向
-    WOLF:  [50, 42],   // 中焦中避 (略偏回避)
-    PEAC:  [42, 50],   // 中焦中避 (展示型)
-    WAVE:  [82, 18],   // 混乱型: 高焦高避
-    BUNN:  [68, 12]    // 混乱+应激跑
-  };
+  function renderDynamicsFlow(flow, compat) {
+    const list = document.getElementById('dynamics-flow');
+    const captionEl = document.getElementById('behavior-caption');
+    if (!list) return;
+    list.innerHTML = '';
 
-  function renderBehaviorMap(typeA, typeB, compat) {
-    const svg = document.getElementById('behavior-svg');
-    const labelsHost = document.getElementById('dot-labels');
-    const captionEl  = document.getElementById('behavior-caption');
-    if (!svg || !labelsHost) return;
-
-    // 清旧
-    [...svg.querySelectorAll('.dot, .dot-line')].forEach(n => n.remove());
-    labelsHost.innerHTML = '';
-
-    const a = TYPE_COORDS[typeA] || [50, 50];
-    const b = TYPE_COORDS[typeB] || [50, 50];
-    const sameType = (typeA === typeB);
-    const NS = 'http://www.w3.org/2000/svg';
-
-    // 连线 (先画, 在 dots 下面)
-    if (!sameType) {
-      const line = document.createElementNS(NS, 'line');
-      line.setAttribute('class', 'dot-line');
-      line.setAttribute('x1', a[0]); line.setAttribute('y1', a[1]);
-      line.setAttribute('x2', b[0]); line.setAttribute('y2', b[1]);
-      svg.appendChild(line);
+    if (!Array.isArray(flow) || !flow.length) {
+      // 无数据隐藏整个 block
+      const block = document.querySelector('.couple-behavior-block');
+      if (block) block.style.display = 'none';
+      return;
     }
 
-    // 双方点
-    const dotA = document.createElementNS(NS, 'circle');
-    dotA.setAttribute('class', 'dot dot-you');
-    dotA.setAttribute('cx', a[0]); dotA.setAttribute('cy', a[1]);
-    dotA.setAttribute('r', 3.5);
-    svg.appendChild(dotA);
+    flow.forEach(function (node, i) {
+      const li = document.createElement('li');
+      li.className = 'flow-node flow-node-' + (node.actor || 'neutral');
+      const isLast = i === flow.length - 1;
+      // actor label
+      const actorTxt = (function () {
+        switch (node.actor) {
+          case 'you':  return '你';
+          case 'ta':   return 'ta';
+          case 'loop': return '↻';
+          case 'end':  return '结';
+          default:     return '·';
+        }
+      })();
+      li.innerHTML = ''
+        + '<span class="flow-actor">' + actorTxt + '</span>'
+        + '<div class="flow-action"></div>';
+      li.querySelector('.flow-action').textContent = node.action || '';
+      if (!isLast) li.classList.add('has-arrow');
+      list.appendChild(li);
+    });
 
-    if (!sameType) {
-      const dotB = document.createElementNS(NS, 'circle');
-      dotB.setAttribute('class', 'dot dot-ta');
-      dotB.setAttribute('cx', b[0]); dotB.setAttribute('cy', b[1]);
-      dotB.setAttribute('r', 3.5);
-      svg.appendChild(dotB);
-    }
-
-    // HTML overlay 名字
-    function makeLabel(side, x, y, name) {
-      const el = document.createElement('span');
-      el.className = 'dot-label-html dot-label-' + side;
-      el.textContent = (side === 'you' ? '你: ' : 'ta: ') + name;
-      el.style.left = x + '%';
-      el.style.top = y + '%';
-      labelsHost.appendChild(el);
-    }
-    const nameA = typeNameFor(typeA);
-    const nameB = typeNameFor(typeB);
-    if (sameType) {
-      // 同类型 → 一个 dot, label 写"你 = ta"
-      const el = document.createElement('span');
-      el.className = 'dot-label-html dot-label-same';
-      el.textContent = '你 = ta · ' + nameA;
-      el.style.left = a[0] + '%';
-      el.style.top  = a[1] + '%';
-      labelsHost.appendChild(el);
-    } else {
-      makeLabel('you', a[0], a[1], nameA);
-      makeLabel('ta',  b[0], b[1], nameB);
-    }
-
-    // Caption: 用 compat 决定描述, 用距离仅做"同类型"判定
     if (captionEl) {
       const c = (typeof compat === 'number') ? compat : 0;
-      if (sameType) {
-        if (c >= 80)      captionEl.textContent = '同类型双倍同频 — 互为镜子';
-        else if (c >= 50) captionEl.textContent = '同类型双倍同频 — 也双倍盲区';
-        else              captionEl.textContent = '同类型互锁陷阱 — 双倍痛感';
-      } else {
-        if (c >= 88)      captionEl.textContent = '安全锚位互补 — 教科书神配, 跨象限刚好补缺';
-        else if (c >= 75) captionEl.textContent = '高互补区 — 跨象限但齿轮咬合, 翻译就能稳';
-        else if (c >= 60) captionEl.textContent = '能磨合区 — 距离要靠"翻译器"补';
-        else if (c >= 45) captionEl.textContent = '调校区 — 持平就是赢, 关键在不让差异长大';
-        else if (c >= 30) captionEl.textContent = '消耗区 — 跨象限但齿轮反向咬合';
-        else              captionEl.textContent = '致命错配区 — 依恋方向相反, 高消耗预警';
-      }
+      if (c >= 80)      captionEl.textContent = '✓ 这是一个能稳定循环的健康闭环';
+      else if (c >= 60) captionEl.textContent = '⚠️ 这个循环能磨合, 关键在打断负向节点';
+      else if (c >= 45) captionEl.textContent = '⚠️ 这是一个折磨型循环, 需要双方主动跳出';
+      else              captionEl.textContent = '✗ 这是一个致命循环, 不打断会越陷越深';
     }
   }
 

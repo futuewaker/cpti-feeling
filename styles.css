@@ -2292,125 +2292,177 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
 }
 
 /* ==========================================================
-   V6 · 一句话锐评 + 行为动力学
+   V6.1 · 一句话锐评 (米白引号体) + 行为动力学流程图
    ========================================================== */
 
-/* 一句话锐评 box (替换原数字 score card) */
+/* 锐评卡片 — 米白底 + 大暖橘引号 + 玫瑰红左竖线 (热评 vibe) */
 .couple-roast-card {
-  background: #1a1a1a;
-  color: #fff;
-  border: 2.5px solid #1a1a1a;
-  border-radius: 16px;
-  box-shadow: 5px 5px 0 var(--primary);
-  padding: 22px 22px 18px;
-  margin: 0 16px 18px;
   position: relative;
+  background: linear-gradient(180deg, #FFF6E5 0%, #FFE7C9 100%);
+  border: 2.5px solid var(--text);
+  border-radius: 18px;
+  box-shadow: 5px 5px 0 var(--primary-dk);
+  padding: 28px 22px 18px 30px;
+  margin: 0 16px 18px;
 }
-.couple-roast {
-  margin: 0 0 6px;
-  font-size: 17px;
-  font-weight: 800;
-  line-height: 1.6;
-  letter-spacing: 0.005em;
-  color: #FBBF24;
+.couple-roast-card::before {
+  content: '';
+  position: absolute;
+  top: 16px; bottom: 16px; left: 12px;
+  width: 4px;
+  background: var(--primary-dk);
+  border-radius: 2px;
 }
-.couple-roast::before {
-  content: '"';
-  font-family: var(--font-pixel);
-  font-size: 28px;
+.roast-quote-mark {
+  display: block;
+  font-family: 'Georgia', 'Times New Roman', serif;
+  font-size: 56px;
   font-weight: 900;
   color: var(--primary);
-  display: inline-block;
-  margin-right: 6px;
-  vertical-align: -4px;
   line-height: 0.5;
-}
-.couple-roast-card .btn-share-mini {
-  margin-top: 4px;
-}
-.couple-roast-card::after { content: ''; display: block; clear: both; }
-
-/* 行为动力学 · 依恋象限地图 */
-.couple-behavior-block { padding-bottom: 18px; }
-.behavior-map {
-  position: relative;
-  width: 100%;
-  aspect-ratio: 1 / 1;
-  margin: 10px 0 8px;
-  background: var(--bg);
-  border: 1.5px solid var(--text);
-  border-radius: 10px;
-  overflow: hidden;
-}
-.behavior-svg {
-  position: absolute;
-  inset: 0;
-  width: 100%;
-  height: 100%;
-  display: block;
-}
-.quad-avoid    { fill: rgba(173,216,230,0.25); }  /* 蓝 - 回避型 */
-.quad-fearful  { fill: rgba(255,182,193,0.30); }  /* 粉 - 混乱型 */
-.quad-secure   { fill: rgba(186,228,179,0.30); }  /* 绿 - 安全型 */
-.quad-anxious  { fill: rgba(255,200,150,0.30); }  /* 橘 - 焦虑型 */
-.quad-axis     { stroke: var(--text); stroke-width: 0.4; stroke-dasharray: 1.2 1; opacity: 0.45; }
-.dot { stroke: var(--text); stroke-width: 0.6; }
-.dot-you { fill: var(--primary); }
-.dot-ta  { fill: var(--primary-dk); }
-.dot-line { stroke: var(--text); stroke-width: 0.5; stroke-dasharray: 1.8 1.5; opacity: 0.6; }
-
-.quad-labels {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.quad-label {
-  position: absolute;
-  font-family: var(--font-pixel);
-  font-size: 9px;
-  letter-spacing: 0.08em;
-  color: var(--text);
-  opacity: 0.45;
+  margin: 0 0 -2px -4px;
+  letter-spacing: -0.05em;
   -webkit-font-smoothing: none;
 }
-.quad-label-avoid   { top: 8px;    left: 10px; }
-.quad-label-fearful { top: 8px;    right: 10px; }
-.quad-label-secure  { bottom: 8px; left: 10px; }
-.quad-label-anxious { bottom: 8px; right: 10px; }
-
-.dot-labels {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-}
-.dot-label-html {
-  position: absolute;
-  transform: translate(-50%, calc(-100% - 8px));
-  font-size: 11px;
-  font-weight: 700;
-  background: var(--bg);
-  border: 1.5px solid var(--text);
-  padding: 3px 8px;
-  border-radius: 999px;
-  white-space: nowrap;
-  box-shadow: 1.5px 1.5px 0 var(--text);
+.couple-roast {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.65;
   letter-spacing: 0.005em;
+  color: var(--text);
 }
-.dot-label-you  { color: var(--primary); }
-.dot-label-ta   { color: var(--primary-dk); }
-.dot-label-same { color: var(--primary-dk); background: var(--accent); }
-
-.behavior-axes {
-  display: flex;
-  justify-content: space-between;
-  font-size: 10.5px;
+.roast-byline {
+  display: block;
+  margin: 12px 0 0;
+  font-size: 11.5px;
+  font-weight: 600;
   color: var(--text-secondary);
-  letter-spacing: 0.05em;
-  margin-top: 6px;
+  letter-spacing: 0.06em;
+  text-align: right;
+  font-style: italic;
+}
+
+/* 分享按钮独立 row (在"这对的真相"后) */
+.couple-share-row {
+  display: flex;
+  justify-content: center;
+  margin: 4px 16px 22px;
+}
+.btn-share-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #FF2442;
+  color: #fff;
+  border: 2px solid var(--text);
+  box-shadow: 4px 4px 0 var(--text);
+  border-radius: 999px;
+  padding: 12px 26px;
+  font-size: 14px;
+  font-weight: 800;
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  transition: transform 0.12s var(--ease-out), box-shadow 0.12s var(--ease-out);
+}
+.btn-share-pill:hover {
+  transform: translate(-1px, -1px);
+  box-shadow: 5px 5px 0 var(--text);
+}
+.btn-share-pill:active {
+  transform: translate(2px, 2px);
+  box-shadow: 2px 2px 0 var(--text);
+}
+.btn-share-pill .share-icon { font-size: 16px; }
+
+/* 行为动力学 · 流程图 (因果链 a→b→c→d) */
+.couple-behavior-block { padding-bottom: 18px; }
+.behavior-intro {
+  margin: 4px 0 14px;
+  font-size: 12.5px;
+  color: var(--text-secondary);
+  font-style: italic;
   font-weight: 600;
 }
+.dynamics-flow {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.flow-node {
+  display: flex;
+  align-items: stretch;
+  gap: 10px;
+  position: relative;
+  padding: 10px 14px;
+  background: var(--bg-soft);
+  border: 1.5px solid var(--text);
+  border-radius: 10px;
+}
+.flow-node.has-arrow::after {
+  content: '↓';
+  position: absolute;
+  left: 50%;
+  bottom: -16px;
+  transform: translateX(-50%);
+  font-size: 18px;
+  font-weight: 900;
+  color: var(--text);
+  z-index: 2;
+  background: var(--bg);
+  width: 22px; height: 22px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--text);
+  border-radius: 999px;
+  line-height: 1;
+}
+.flow-actor {
+  flex-shrink: 0;
+  width: 30px; height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-pixel);
+  font-size: 11px;
+  border-radius: 999px;
+  -webkit-font-smoothing: none;
+  letter-spacing: 0.04em;
+  border: 1.5px solid var(--text);
+  margin-top: 1px;
+}
+.flow-node-you  .flow-actor { background: var(--primary);    color: var(--text); }
+.flow-node-ta   .flow-actor { background: var(--primary-dk); color: #fff; }
+.flow-node-loop .flow-actor { background: var(--text);       color: #FBBF24; }
+.flow-node-end  .flow-actor { background: var(--accent);     color: var(--text); }
+.flow-node-loop {
+  background: rgba(232,58,111,0.08);
+  border-style: dashed;
+}
+.flow-node-end {
+  background: var(--text);
+  color: #fff;
+  border-color: var(--text);
+}
+.flow-node-end .flow-action {
+  color: #FBBF24;
+  font-weight: 800;
+}
+.flow-action {
+  flex: 1;
+  font-size: 14px;
+  line-height: 1.6;
+  color: var(--text);
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+}
 .behavior-caption {
-  margin: 8px 0 0;
+  margin: 16px 0 0;
   font-size: 13px;
   font-style: italic;
   color: var(--text);

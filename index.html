@@ -273,40 +273,31 @@
 
       <!-- 一句话锐评 (替换原兼容度数字区) -->
       <div class="couple-roast-card">
+        <span class="roast-quote-mark" aria-hidden="true">"</span>
         <p class="couple-roast" id="couple-roast"></p>
-        <a class="btn-share-mini" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">分享 →</a>
-      </div>
-
-      <!-- 行为动力学 · 依恋象限地图 -->
-      <div class="couple-block couple-behavior-block">
-        <span class="couple-block-label">🔬 行为动力学</span>
-        <div class="behavior-map">
-          <svg viewBox="0 0 100 100" class="behavior-svg" id="behavior-svg" preserveAspectRatio="none">
-            <rect x="0" y="0" width="50" height="50" class="quad-avoid"/>
-            <rect x="50" y="0" width="50" height="50" class="quad-fearful"/>
-            <rect x="0" y="50" width="50" height="50" class="quad-secure"/>
-            <rect x="50" y="50" width="50" height="50" class="quad-anxious"/>
-            <line x1="0" y1="50" x2="100" y2="50" class="quad-axis"/>
-            <line x1="50" y1="0" x2="50" y2="100" class="quad-axis"/>
-          </svg>
-          <div class="quad-labels">
-            <span class="quad-label quad-label-avoid">回避型</span>
-            <span class="quad-label quad-label-fearful">混乱型</span>
-            <span class="quad-label quad-label-secure">安全型</span>
-            <span class="quad-label quad-label-anxious">焦虑型</span>
-          </div>
-          <div class="dot-labels" id="dot-labels"></div>
-        </div>
-        <div class="behavior-axes">
-          <span class="behavior-axis-x">← 焦虑 低　·　高 →</span>
-          <span class="behavior-axis-y">↑ 回避 高　·　低 ↓</span>
-        </div>
-        <p class="behavior-caption" id="behavior-caption"></p>
+        <span class="roast-byline">— CPTI 一句锐评</span>
       </div>
 
       <div class="couple-block is-accent">
         <span class="couple-block-label">这对的真相</span>
         <div class="couple-block-body" id="couple-dynamics"></div>
+      </div>
+
+      <!-- 分享按钮 · 看完真相想发 ta -->
+      <div class="couple-share-row">
+        <a class="btn-share-pill" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">
+          <span class="share-icon" aria-hidden="true">📨</span>
+          把这页发给 ta
+          <span class="btn-arrow" aria-hidden="true">→</span>
+        </a>
+      </div>
+
+      <!-- 行为动力学 · 因果流程链 (a 触发 b, b 触发 c) -->
+      <div class="couple-block couple-behavior-block">
+        <span class="couple-block-label">🔬 行为动力学</span>
+        <p class="behavior-intro">这对的因果链 — 一个动作触发下一个</p>
+        <ol class="dynamics-flow" id="dynamics-flow"></ol>
+        <p class="behavior-caption" id="behavior-caption"></p>
       </div>
 
       <!-- V4 新 Section · 高频对话 (3 条 you/ta) -->
