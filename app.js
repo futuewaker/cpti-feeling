@@ -915,6 +915,9 @@
     // V4 新 Section · BGM (我手动规则映射)
     renderCoupleBGM(cr.leftType, cr.rightType, compat);
 
+    // V5 新 Section · 让你们更好的 3 件事 (实操 growth_kit)
+    renderGrowthKit(pair.growth_kit);
+
     // CPTI v2: highlight / warning / advice (single string each)
     fillCoupleBlock(el.coupleStrengths, pair.highlight  || pair.strengths);
     fillCoupleBlock(el.coupleRisks,     pair.warning    || pair.risks);
@@ -991,6 +994,22 @@
     if (compat >= 45) return { song: '《分手快乐》',   artist: '梁静茹', reason: '持平就是赢, 但偶尔会想离开' };
     if (compat >= 30) return { song: '《不该》',       artist: '周杰伦', reason: '互相消耗, 都知道但停不下' };
     return { song: '《泪光闪闪》', artist: '夏川里美', reason: '走开就别回头' };
+  }
+
+  function renderGrowthKit(items) {
+    const block = document.getElementById('couple-growth-block');
+    const list  = document.getElementById('couple-growth-list');
+    if (!block || !list) return;
+    if (!Array.isArray(items) || !items.length) { block.style.display = 'none'; return; }
+    list.innerHTML = '';
+    items.slice(0, 3).forEach(function (text, i) {
+      const li = document.createElement('li');
+      li.className = 'growth-item';
+      li.innerHTML = '<span class="growth-num">' + (i + 1) + '</span>'
+        + '<div class="growth-text">' + mdBoldToHTML(text) + '</div>';
+      list.appendChild(li);
+    });
+    block.style.display = '';
   }
 
   function renderCoupleBGM(typeA, typeB, compat) {
