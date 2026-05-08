@@ -1,16 +1,16 @@
 /* ===========================================================
    CPTI · 感情模式 — styles.css
-   极简像素风 · 暖橘玫瑰 v3
+   极简像素风 · 粉色 v8
    =========================================================== */
 
 :root {
-  --primary:     #FF7A45;    /* 暖橘,主色 */
-  --primary-dk:  #E83A6F;    /* 玫瑰红,hover/pressed/强调 */
-  --primary-lt:  #FFD4C4;    /* 浅橘,次要高亮 */
+  --primary:     #FF6B9D;    /* 中调粉,主色 */
+  --primary-dk:  #E84B82;    /* 深粉,hover/pressed/强调 */
+  --primary-lt:  #FFD0E0;    /* 浅粉,次要高亮 */
   --accent:      #FBBF24;    /* 蜜糖黄,徽章/标签高亮 */
   --shadow:      #000;       /* 黑描边 + 黑阴影 */
   --bg: #FFFFFF;             /* 纯白底 */
-  --bg-soft: #FFF6E5;        /* 米白底,卡片内衬 (温暖感) */
+  --bg-soft: #FFF1F5;        /* 极淡粉底,卡片内衬 */
   --surface: #F4F4F4;
   --surface-hover: #EBEBEB;
   --surface-strong: #E8E8E8;
@@ -83,70 +83,12 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
   text-align: center;
   padding-top: 28px;
   padding-bottom: 40px;
-  position: relative;
-  overflow: hidden;
 }
 .intro-inner {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
-  position: relative;
-  z-index: 1;
-}
-
-/* 飘心装饰 — 背景慢慢浮起 */
-.floating-hearts {
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  z-index: 0;
-}
-.floating-hearts .heart {
-  position: absolute;
-  font-size: 24px;
-  color: var(--primary);
-  opacity: 0.18;
-  animation: heartFloat 9s ease-in-out infinite;
-  user-select: none;
-}
-.heart-1 { top: 8%;   left: 8%;   font-size: 28px; animation-delay: 0s;   color: var(--primary-dk); }
-.heart-2 { top: 14%;  right: 10%; font-size: 20px; animation-delay: 1.5s; color: var(--primary); opacity: 0.22; }
-.heart-3 { top: 38%;  left: 4%;   font-size: 22px; animation-delay: 3s;   color: var(--primary); }
-.heart-4 { top: 46%;  right: 6%;  font-size: 32px; animation-delay: 4.5s; color: var(--primary-lt); opacity: 0.45; }
-.heart-5 { bottom: 22%; left: 12%; font-size: 18px; animation-delay: 6s;  color: var(--primary-dk); opacity: 0.20; }
-.heart-6 { bottom: 12%; right: 14%; font-size: 26px; animation-delay: 7.5s; color: var(--primary); opacity: 0.20; }
-@keyframes heartFloat {
-  0%, 100% { transform: translateY(0) rotate(-3deg); opacity: var(--heart-base, 0.18); }
-  50%      { transform: translateY(-12px) rotate(3deg); opacity: 0.35; }
-}
-@media (prefers-reduced-motion: reduce) {
-  .floating-hearts .heart { animation: none; }
-}
-
-/* CPTI 标题里的爱心 */
-.title-heart {
-  display: inline-block;
-  font-family: 'Georgia', 'Times New Roman', serif;
-  color: var(--primary);
-  -webkit-text-stroke: 2px var(--text);
-  margin-left: 4px;
-  vertical-align: -2px;
-  animation: heartBeat 1.6s ease-in-out infinite;
-}
-@keyframes heartBeat {
-  0%, 100% { transform: scale(1); }
-  50%      { transform: scale(1.12); }
-}
-@media (prefers-reduced-motion: reduce) {
-  .title-heart { animation: none; }
-}
-
-/* sub slogan 里的小心 */
-.sub-heart {
-  color: var(--primary);
-  font-size: 14px;
-  margin: 0 4px;
 }
 
 /* 3-row scrolling pixel pet marquee */
