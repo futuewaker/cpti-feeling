@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>CPTI 感情图鉴</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
+<style>
+:root {
+  --primary:    #FF6B9D;
+  --primary-dk: #E84B82;
+  --primary-lt: #FFD0E0;
+  --accent:     #FBBF24;
+  --bg:         #FFFFFF;
+  --bg-soft:    #FFF1F5;
+  --text:       #111;
+  --pixel: "Press Start 2P", "VT323", ui-monospace, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 1080px;
+  height: 1440px;
+  background: var(--bg-soft);
+  font-family: -apple-system, "PingFang SC", "Noto Sans SC", sans-serif;
+  color: var(--text);
+}
+
+.poster {
+  width: 1080px;
+  height: 1440px;
+  padding: 56px 56px 50px;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.title-pixel {
+  font-family: var(--pixel);
+  font-size: 88px;
+  font-weight: 900;
+  letter-spacing: 0.04em;
+  line-height: 1;
+  -webkit-text-stroke: 4px var(--text);
+  text-shadow: 8px 8px 0 var(--primary);
+  -webkit-font-smoothing: none;
+  margin-bottom: 14px;
+}
+
+.subtitle-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 30px;
+  font-weight: 900;
+  margin-bottom: 6px;
+}
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--pixel);
+  font-size: 18px;
+  -webkit-font-smoothing: none;
+  background: var(--text);
+  color: #fff;
+  padding: 8px 18px;
+  border-radius: 999px;
+  letter-spacing: 0.1em;
+}
+
+.tagline {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.04em;
+  margin-top: 4px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(4, 240px);
+  gap: 26px;
+}
+
+.card {
+  background: var(--bg);
+  border: 3px solid var(--text);
+  border-radius: 22px;
+  padding: 22px 14px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.card-pink   { box-shadow: 9px 9px 0 var(--primary); }
+.card-deep   { box-shadow: 9px 9px 0 var(--primary-dk); }
+.card-yellow { box-shadow: 9px 9px 0 var(--accent); }
+.card-black  { box-shadow: 9px 9px 0 var(--text); }
+
+.card-img {
+  width: 96px;
+  height: 96px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+.card-id {
+  font-family: var(--pixel);
+  font-size: 26px;
+  -webkit-font-smoothing: none;
+  letter-spacing: 0.1em;
+  color: var(--text);
+  margin-top: 4px;
+}
+
+.card-name {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  letter-spacing: 0.01em;
+  text-align: center;
+}
+
+/* 隐藏款 */
+.card-hidden .card-img {
+  position: relative;
+}
+.card-hidden .qmark {
+  font-family: var(--pixel);
+  font-size: 90px;
+  -webkit-font-smoothing: none;
+  color: var(--text);
+  text-shadow: 4px 4px 0 var(--primary);
+  letter-spacing: -0.02em;
+}
+.card-hidden .card-id {
+  font-size: 24px;
+  letter-spacing: 0.2em;
+}
+.card-hidden .card-name { color: var(--text); }
+</style>
+</head>
+<body>
+<div class="poster">
+  <div class="header">
+    <div class="title-pixel">CPTI</div>
+    <div class="subtitle-row">
+      感情图鉴 · 你是哪一型
+      <span class="page-badge">1 / 1</span>
+    </div>
+    <div class="tagline">10 种感情模式 · 总有一种是你</div>
+  </div>
+
+  <div class="grid">
+    <div class="card card-pink">
+      <div class="card-img"><img src="images/hermit_crab.png" alt=""></div>
+      <div class="card-id">SHELL</div>
+      <div class="card-name">爱情门神</div>
+    </div>
+    <div class="card card-deep">
+      <div class="card-img"><img src="images/owl.png" alt=""></div>
+      <div class="card-id">OWL</div>
+      <div class="card-name">小作文之神</div>
+    </div>
+    <div class="card card-yellow">
+      <div class="card-img"><img src="images/peacock.png" alt=""></div>
+      <div class="card-id">PEAC</div>
+      <div class="card-name">配得感拉满侠</div>
+    </div>
+
+    <div class="card card-yellow">
+      <div class="card-img"><img src="images/koala.png" alt=""></div>
+      <div class="card-id">HUG</div>
+      <div class="card-name">粘人圣体</div>
+    </div>
+    <div class="card card-pink">
+      <div class="card-img"><img src="images/bee.png" alt=""></div>
+      <div class="card-id">BEE</div>
+      <div class="card-name">轻量海王</div>
+    </div>
+    <div class="card card-black">
+      <div class="card-img"><img src="images/dolphin.png" alt=""></div>
+      <div class="card-id">WAVE</div>
+      <div class="card-name">已读乱杀王</div>
+    </div>
+
+    <div class="card card-deep">
+      <div class="card-img"><img src="images/wolf_cub.png" alt=""></div>
+      <div class="card-id">WOLF</div>
+      <div class="card-name">凶巴巴小奶狗</div>
+    </div>
+    <div class="card card-pink">
+      <div class="card-img"><img src="images/penguin.png" alt=""></div>
+      <div class="card-id">PEN</div>
+      <div class="card-name">直奔民政局</div>
+    </div>
+    <div class="card card-yellow">
+      <div class="card-img"><img src="images/rabbit.png" alt=""></div>
+      <div class="card-id">BUNN</div>
+      <div class="card-name">闪电分手户</div>
+    </div>
+
+    <div class="card card-pink">
+      <div class="card-img"><img src="images/lamb.png" alt=""></div>
+      <div class="card-id">LAMB</div>
+      <div class="card-name">fawn 体质</div>
+    </div>
+    <div class="card card-black card-hidden">
+      <div class="card-img"><span class="qmark">?</span></div>
+      <div class="card-id">—</div>
+      <div class="card-name">隐藏款 (敬请期待)</div>
+    </div>
+    <div class="card card-deep card-hidden">
+      <div class="card-img"><span class="qmark">?</span></div>
+      <div class="card-id">—</div>
+      <div class="card-name">你的本命款?</div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
