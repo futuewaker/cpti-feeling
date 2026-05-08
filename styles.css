@@ -2291,6 +2291,133 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
   padding: 0 2px;
 }
 
+/* ==========================================================
+   V6 · 一句话锐评 + 行为动力学
+   ========================================================== */
+
+/* 一句话锐评 box (替换原数字 score card) */
+.couple-roast-card {
+  background: #1a1a1a;
+  color: #fff;
+  border: 2.5px solid #1a1a1a;
+  border-radius: 16px;
+  box-shadow: 5px 5px 0 var(--primary);
+  padding: 22px 22px 18px;
+  margin: 0 16px 18px;
+  position: relative;
+}
+.couple-roast {
+  margin: 0 0 6px;
+  font-size: 17px;
+  font-weight: 800;
+  line-height: 1.6;
+  letter-spacing: 0.005em;
+  color: #FBBF24;
+}
+.couple-roast::before {
+  content: '"';
+  font-family: var(--font-pixel);
+  font-size: 28px;
+  font-weight: 900;
+  color: var(--primary);
+  display: inline-block;
+  margin-right: 6px;
+  vertical-align: -4px;
+  line-height: 0.5;
+}
+.couple-roast-card .btn-share-mini {
+  margin-top: 4px;
+}
+.couple-roast-card::after { content: ''; display: block; clear: both; }
+
+/* 行为动力学 · 依恋象限地图 */
+.couple-behavior-block { padding-bottom: 18px; }
+.behavior-map {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  margin: 10px 0 8px;
+  background: var(--bg);
+  border: 1.5px solid var(--text);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.behavior-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+.quad-avoid    { fill: rgba(173,216,230,0.25); }  /* 蓝 - 回避型 */
+.quad-fearful  { fill: rgba(255,182,193,0.30); }  /* 粉 - 混乱型 */
+.quad-secure   { fill: rgba(186,228,179,0.30); }  /* 绿 - 安全型 */
+.quad-anxious  { fill: rgba(255,200,150,0.30); }  /* 橘 - 焦虑型 */
+.quad-axis     { stroke: var(--text); stroke-width: 0.4; stroke-dasharray: 1.2 1; opacity: 0.45; }
+.dot { stroke: var(--text); stroke-width: 0.6; }
+.dot-you { fill: var(--primary); }
+.dot-ta  { fill: var(--primary-dk); }
+.dot-line { stroke: var(--text); stroke-width: 0.5; stroke-dasharray: 1.8 1.5; opacity: 0.6; }
+
+.quad-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.quad-label {
+  position: absolute;
+  font-family: var(--font-pixel);
+  font-size: 9px;
+  letter-spacing: 0.08em;
+  color: var(--text);
+  opacity: 0.45;
+  -webkit-font-smoothing: none;
+}
+.quad-label-avoid   { top: 8px;    left: 10px; }
+.quad-label-fearful { top: 8px;    right: 10px; }
+.quad-label-secure  { bottom: 8px; left: 10px; }
+.quad-label-anxious { bottom: 8px; right: 10px; }
+
+.dot-labels {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+.dot-label-html {
+  position: absolute;
+  transform: translate(-50%, calc(-100% - 8px));
+  font-size: 11px;
+  font-weight: 700;
+  background: var(--bg);
+  border: 1.5px solid var(--text);
+  padding: 3px 8px;
+  border-radius: 999px;
+  white-space: nowrap;
+  box-shadow: 1.5px 1.5px 0 var(--text);
+  letter-spacing: 0.005em;
+}
+.dot-label-you  { color: var(--primary); }
+.dot-label-ta   { color: var(--primary-dk); }
+.dot-label-same { color: var(--primary-dk); background: var(--accent); }
+
+.behavior-axes {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10.5px;
+  color: var(--text-secondary);
+  letter-spacing: 0.05em;
+  margin-top: 6px;
+  font-weight: 600;
+}
+.behavior-caption {
+  margin: 8px 0 0;
+  font-size: 13px;
+  font-style: italic;
+  color: var(--text);
+  text-align: center;
+  font-weight: 600;
+}
+
 /* 🌱 让你们更好的 3 件事 (V5 growth_kit) */
 .couple-growth-block {
   background: linear-gradient(135deg, #E5F5EE, #C9EBDB);

@@ -271,11 +271,37 @@
         <p class="couple-subtitle" id="couple-subtitle"></p>
       </div>
 
-      <div class="couple-score-card">
-        <span class="couple-score-label">兼容度</span>
-        <span class="couple-score-value" id="couple-score">--</span>
-        <span class="couple-score-note" id="couple-score-note"></span>
+      <!-- 一句话锐评 (替换原兼容度数字区) -->
+      <div class="couple-roast-card">
+        <p class="couple-roast" id="couple-roast"></p>
         <a class="btn-share-mini" href="http://xhslink.com/o/6fP8Zqu9lRO" target="_blank" rel="noopener noreferrer" aria-label="分享到小红书">分享 →</a>
+      </div>
+
+      <!-- 行为动力学 · 依恋象限地图 -->
+      <div class="couple-block couple-behavior-block">
+        <span class="couple-block-label">🔬 行为动力学</span>
+        <div class="behavior-map">
+          <svg viewBox="0 0 100 100" class="behavior-svg" id="behavior-svg" preserveAspectRatio="none">
+            <rect x="0" y="0" width="50" height="50" class="quad-avoid"/>
+            <rect x="50" y="0" width="50" height="50" class="quad-fearful"/>
+            <rect x="0" y="50" width="50" height="50" class="quad-secure"/>
+            <rect x="50" y="50" width="50" height="50" class="quad-anxious"/>
+            <line x1="0" y1="50" x2="100" y2="50" class="quad-axis"/>
+            <line x1="50" y1="0" x2="50" y2="100" class="quad-axis"/>
+          </svg>
+          <div class="quad-labels">
+            <span class="quad-label quad-label-avoid">回避型</span>
+            <span class="quad-label quad-label-fearful">混乱型</span>
+            <span class="quad-label quad-label-secure">安全型</span>
+            <span class="quad-label quad-label-anxious">焦虑型</span>
+          </div>
+          <div class="dot-labels" id="dot-labels"></div>
+        </div>
+        <div class="behavior-axes">
+          <span class="behavior-axis-x">← 焦虑 低　·　高 →</span>
+          <span class="behavior-axis-y">↑ 回避 高　·　低 ↓</span>
+        </div>
+        <p class="behavior-caption" id="behavior-caption"></p>
       </div>
 
       <div class="couple-block is-accent">
@@ -296,32 +322,16 @@
         <div class="couple-block-body couple-future-body" id="couple-future"></div>
       </div>
 
-      <!-- V4 新 Section · BGM -->
-      <div class="couple-block couple-bgm-block" id="couple-bgm-block" style="display:none;">
-        <span class="couple-block-label">🎵 这对的 BGM</span>
-        <div class="bgm-card">
-          <div class="bgm-meta">
-            <span class="bgm-song" id="couple-bgm-song"></span>
-            <span class="bgm-artist" id="couple-bgm-artist"></span>
-          </div>
-          <p class="bgm-reason" id="couple-bgm-reason"></p>
-        </div>
-      </div>
+      <!-- V4 BGM section 已移除 (用户反馈) -->
+      <!-- 旧 最大亮点 / 最大雷区 已移除 (内容被翻译器 + growth_kit 覆盖) -->
 
-      <div class="couple-block">
-        <span class="couple-block-label">最大亮点</span>
-        <ul class="couple-list" id="couple-strengths"></ul>
-      </div>
-
-      <div class="couple-block">
-        <span class="couple-block-label">最大雷区</span>
-        <ul class="couple-list" id="couple-risks"></ul>
-      </div>
-
-      <div class="couple-block">
+      <div class="couple-block" style="display:none;">
         <span class="couple-block-label">给你们的建议</span>
         <ul class="couple-list" id="couple-repair"></ul>
       </div>
+      <!-- 隐藏 strengths/risks DOM, 保留 id 防 JS 报错 -->
+      <ul id="couple-strengths" hidden></ul>
+      <ul id="couple-risks" hidden></ul>
 
       <!-- V5 新 Section · 让你们更好的 3 件事 (实操指南) -->
       <div class="couple-block couple-growth-block" id="couple-growth-block" style="display:none;">
