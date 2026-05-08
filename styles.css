@@ -1,16 +1,16 @@
 /* ===========================================================
    CPTI · 感情模式 — styles.css
-   极简像素风 · 玫瑰色 v7
+   极简像素风 · 暖橘玫瑰 v3
    =========================================================== */
 
 :root {
-  --primary:     #E91E63;    /* 玫瑰主色 (Material rose 500) */
-  --primary-dk:  #AD1457;    /* 深玫瑰,hover/pressed/强调 */
-  --primary-lt:  #F8BBD0;    /* 浅玫瑰,次要高亮 */
+  --primary:     #FF7A45;    /* 暖橘,主色 */
+  --primary-dk:  #E83A6F;    /* 玫瑰红,hover/pressed/强调 */
+  --primary-lt:  #FFD4C4;    /* 浅橘,次要高亮 */
   --accent:      #FBBF24;    /* 蜜糖黄,徽章/标签高亮 */
   --shadow:      #000;       /* 黑描边 + 黑阴影 */
   --bg: #FFFFFF;             /* 纯白底 */
-  --bg-soft: #FCE4EC;        /* 极淡玫瑰底,卡片内衬 */
+  --bg-soft: #FFF6E5;        /* 米白底,卡片内衬 (温暖感) */
   --surface: #F4F4F4;
   --surface-hover: #EBEBEB;
   --surface-strong: #E8E8E8;
