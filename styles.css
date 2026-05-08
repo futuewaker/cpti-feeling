@@ -1375,6 +1375,39 @@ img { display: block; max-width: 100%; image-rendering: pixelated; image-renderi
   text-align: center;
 }
 
+/* 双人解读最终金句 — 戏剧化收口 */
+.couple-final-note {
+  margin: 28px 12px 8px;
+  padding: 18px 16px;
+  font-size: 15px;
+  line-height: 1.85;
+  color: var(--text);
+  text-align: center;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  border-top: 1.5px dashed var(--primary-dk);
+  border-bottom: 1.5px dashed var(--primary-dk);
+}
+.couple-final-note .final-note-dash {
+  display: block;
+  font-family: var(--font-pixel);
+  color: var(--primary-dk);
+  font-size: 14px;
+  margin-bottom: 10px;
+  -webkit-font-smoothing: none;
+}
+.couple-final-note em {
+  display: inline-block;
+  margin-top: 4px;
+  font-style: normal;
+  font-size: 19px;
+  font-weight: 900;
+  color: var(--primary-dk);
+  letter-spacing: 0.06em;
+  background: linear-gradient(180deg, transparent 60%, var(--primary-lt) 60%);
+  padding: 0 6px;
+}
+
 /* ==========================================================
    SHARE CARD (offscreen, rendered to image on demand)
    ========================================================== */
